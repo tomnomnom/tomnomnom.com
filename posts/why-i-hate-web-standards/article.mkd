@@ -1,0 +1,16 @@
+# Why I hate web standards
+
+I don't really hate them. I really can see the need for them. Cross browser compatibility is reason enough in itself. I just have that hack-ish attitude - I like to make things do what they're not meant to do, and do things in the simplest way possible. While the web standards do leave room for that sort of thing, they're not without their problems.
+
+In the heading in each of these sections: I wanted to have the date on the same line as the title, aligned to the right. CSS styling doesn't leave me an easy way to do that. In the days of table layouts it would have been an easy job:
+      
+
+    <table width="100%">
+      <tr>
+        <td align="left">Title text</td>
+        <td align="right">Date</td>
+      </tr>
+    </table>
+
+
+Ah well! It looks fine underneath the title text anyway. I've dropped the colour a few shades so it doesn't get in the way as much, so to speak. Bring on CSS3. I want `display: table-cell;` dammit!

@@ -1,0 +1,77 @@
+# A generic caching function for PHP
+
+A short post is better than none. I threw together a generic caching function today; thought I'd share. 
+
+    <?php
+    function createCached($fn, $ttl = 100){
+        return function() use($fn, $ttl){
+            $args = func_get_args();
+            if (!is_string($fn)){
+                //Use reflection to get a unique, reproducible 
+                //identifier for an anonymous function
+                $r = new ReflectionFunction($fn);
+                $key = md5(
+                  $r->getFileName().
+                  $r->getStartLine().
+                  serialize($args)
+                );
+            } else {
+                $key = md5($fn.serialize($args));
+            }
+            $result = apc_fetch($key, $success);
+            if ($success) return $result;
+            $result = call_user_func_array($fn, $args);
+            apc_store($key, $result, $ttl);
+            return $result;
+        };
+    }
+
+It's pretty simple and immature (read: no error checking) at the moment, but here's an example...
+
+    <?php
+    function helloWorld($name){
+        echo "You will only see this when the result is not cached\\n";
+        return "Hello, {$name}!\\n";
+    }
+
+    echo helloWorld('Tom');
+    $cachedHelloWorld = createCached('helloWorld', 10);
+    echo $cachedHelloWorld('Tom');
+    echo $cachedHelloWorld('Tom');
+
+The output of that is something a little like this:
+
+    You will only see this when the result is not cached
+    Hello, Tom!
+    You will only see this when the result is not cached
+    Hello, Tom!
+    Hello, Tom!
+
+As you can (hopefully) see, the first call too helloWorld() just calls it directly. The call to 
+createCached() creates a cached version of helloWorld() with a Time To Live of 10 seconds. The 
+first call to the resultant anonymous function calls helloWorld() and caches the result using 
+[APC](http://pecl.php.net/package/APC). The third and final call just returns the cached result. 
+
+You can pass in an anonymous function instead of the name of a function too:
+
+    <?php
+    $myFn = createCached(function(){
+        $result_array = someIntensiveFunction();
+        sort($result_array);
+        return $result_array;
+    }, 3600);
+
+    print_r($myFn());
+
+This would create a function that caches the sorted output of someIntensiveFunction() for an hour. 
+Very handy if someIntensiveFunction() lives up to it's name. 
+
+If you've got a big code-base with a lot of fetcher functions this approach can be pretty handy; 
+you can cache the output of your most used functions without cluttering them up with caching code. 
+
+## Limitations
+There's a whole bunch wrong with my suggested code at the moment. I just wanted to get it out of my 
+head while it's still fresh. It won't work with object methods and it's not very well tested, for 
+example. I might get time in the next 6 months or so (that is my average interval between blog 
+posts isn't it?) to write some tests for it and expand a little on the idea. Or I might just write 
+an equivalent in JavaScript for comparison.

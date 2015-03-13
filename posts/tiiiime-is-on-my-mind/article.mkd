@@ -1,0 +1,9 @@
+# Tiiiime is on my mind
+
+I've been playing around trying to make some sort of back-end for this thing. I've dabbled with SQLite a bit; it's quite nice. I've also been trying to stick to the whole '3 layers' thing - that is: data, processing and presentation.
+ 
+I constantly find myself wanting to buck the trend and do things however the hell I want,  but people keep on ruining my fun by giving me very good reasons for doing things the 'proper' way. Perhaps it would be best to find try and find a middle ground. For example: I wouldn't mind using a template engine for the bulk of the page, but storing the HTML for each section. Having a template for a link or a paragraph seems a little excessive. It's not like I'd be using <font> tags :-P
+
+In other news: I finally have a new laptop, so I can actually do some dev work on this thing while I'm at home. Lunchtimes just aren't long enough for anything other than the odd update.
+ 
+Also: W3C have added an [HTML5](http://validator.w3.org/check?uri=http%3A%2F%2Ftomnomnom.com%2F&charset=(detect+automatically)&doctype=Inline&group=0&user-agent=W3C_Validator%2F1.606) mode to their validator. Woop! Thanks to [Andy](http://www.andysmith.co.uk) for pointing it out.

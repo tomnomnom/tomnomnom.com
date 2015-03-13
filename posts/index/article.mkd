@@ -1,0 +1,7 @@
+# Work in progress
+
+I've spent too much of my time writing things that never get released because 
+they're not finished. My fix for this is to accept that some things are 
+never finished and to release them anyway. 
+
+[Here is an archive of my old blog posts.](/posts/archive)

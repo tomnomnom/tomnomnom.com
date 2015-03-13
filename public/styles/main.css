@@ -1,0 +1,75 @@
+body {
+  max-width: 37em;
+  min-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  color: #444444;
+  background-color: #F9F9F9;
+  font-family: 'Droid Serif', serif;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+h1, h2, h3, h4 { margin-top: 1.5em; margin-bottom: 0.5em; }
+h1 { margin-top: 1em; }
+h1 { font-size: 4em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.1em; }
+h4 { font-size: 1em; }
+
+section.main h1 { 
+  margin-top: 1.5em; 
+  font-size: 2em; 
+}
+
+hgroup {
+  margin-bottom: 2em;
+}
+hgroup h1 {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+}
+hgroup h2 {
+  margin-top: 0;
+  padding-top: 0;
+  font-size: 1em;
+  font-weight: normal;
+}
+
+h1 a {
+  text-decoration: none;
+  color: #444444;
+}
+
+p, li {
+  line-height: 140%;
+}
+
+footer {
+  margin-top: 15em;
+  font-size: 0.8em;
+}
+
+#lastModified {
+  margin-top: 3em;
+  font-size: 0.8em;
+}
+
+a {
+  color: #111111;
+}
+a:visited {
+  color: #666666;
+}
+
+hgroup h2 {
+  float: left;
+  font-size: 1.2em;
+}
+hgroup form.search {
+  float: right;
+  margin-right: 0.6em;
+}
+section {
+  clear: both;
+}

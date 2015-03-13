@@ -1,0 +1,180 @@
+# Methinks it is like an incestuous weasel
+
+There's an age-old thought experiment you may have heard of called the [Infinite Monkey Theorem](http://en.wikipedia.org/wiki/Infinite_monkey_theorem). The idea goes that if you have a monkey hitting random keys on a typewriter, given enough time it will eventually write the complete works of Shakespeare. Richard Dawkins mentioned this theory in his book *The Blind Watchmaker*; and as Dawkins points out, the key-word in the theory is 'enough'. He goes on to theorise just how much time would it take for the monkey to write just a single quote from Hamlet: *Methinks it is like a weasel*. It turns out that even if the monkey were limited to a keyboard of 27 keys; A to Z and a spacebar; the answer, as you may well have guessed, is a **very** long time. 
+
+The phrase *METHINKS IT IS LIKE A WEASEL* is 28 characters long, and has 27 possibities for each character, making for 27^28 (about 10^40) possible combinations. To put that into perspective: it's reckoned that there's about 10^80 atoms in the visible universe. Even if the monkey could try millions of combinations per second, he would almost certainly never get there - and that's assuming he never repeated a combination. 
+
+So it would take a **very** long time for the monkey to hit the right keys at *random*, but what about if it weren't completely random? Dawkins suggests a [computer program to simulate the monkey](http://en.wikipedia.org/wiki/Weasel_program), only using something akin to evolution to form the phrase instead of complete randomness. That is: randomness would still be involved, but in a slightly more predictable capacity than the virtual equivilent of a monkey bashing its head against a keyboard. Here, I shall attempt to show my own version of Dawkins' *Weasel program* in PHP. Because I love PHP. 
+
+## What does one need to simulate evolution?
+I'm glad you asked! For our simplistic simulation of evolution we need a few things. Firstly, we need something to represent an 'organism'. For this we will use strings of characters of a set length; the letters representing the genes. Secondly, we need some way to test the 'fitness' of an 'organism'; and thirdly, we need a way for our 'organisms' to 'mate'. I admit there are a bunch of other things needed - but we'll get to those later. 
+
+I shall start by defining a few parameters that will be used throughout the program:
+
+    <?php
+    //Settings
+    define('TARGET', 'METHINKS IT IS LIKE A WEASEL');
+    define('POPULATION_SIZE', 10);
+    define('MUTATION_CHANCE', 100);
+
+`TARGET` is our target string, `POPULATION_SIZE` is how many 'organisms' will exist in each generation, and `MUTATION_CHANCE` is how likely a gene is to mutate from parent to child (think of it as 1/MUTATION\_CHANCE, i.e. 200 yields a lower chance of mutation than 100). Let's define some helper functions...
+
+    <?php
+    //Get a random character
+    function randChar(){
+      $chars = range('A', 'Z', 1);
+      $chars[] = ' ';
+      return $chars[rand(0, sizeOf($chars) - 1)];
+    };
+
+    //Get a random string
+    function randString(){
+      $out = '';
+      for ($i = 0; $i < strLen(TARGET); $i++){
+        $out .= randChar();
+      }
+      return $out;
+    }
+
+
+These functions are both simple enough, they just provide a mechanism for obtaining a random character and for creating a random 'organism' from those characters. 
+
+So we've got a way to make organisms, but how should they mate? Here's how: 
+
+    <?php
+    //Mate two strings
+    function mate($one, $two){
+      $out = '';
+      for ($i = 0; $i < strLen(TARGET); $i++){
+        if(!rand(0, MUTATION_CHANCE-1)){
+          $out .= randChar(); //Mutated gene
+        } elseif (rand(0,1)){
+          $out .= $one[$i];   //Gene from parent one
+        } else {
+          $out .= $two[$i];   //Gene from parent two
+        }
+      }
+      return $out;
+    }
+
+
+The `mate` function takes two organisms and 'mates' them. There is a `1/MUTATION_CHANCE` chance that a gene will be completely random. If the gene does not mutate, there is a 50% chance the 'child' will get the gene from parent one, and a (somewhat predicable) 50% chance it will get the gene from parent two.
+
+Now that we can mate two organisms, we need a way to make a whole population of organisms.
+
+    <?php
+    //New population
+    function newPopulation($one, $two){
+      $population = array();
+      for ($i = 0; $i < POPULATION_SIZE; $i++){
+        $population[] = mate($one, $two); 
+      }
+      return $population;
+    }
+
+
+Right; still with me? A whole population of our little string people is all well and good, but where do we go from there? We need a way to check the *fitness* of an organism. Enter the fitness function:
+
+    <?php
+    //Check the fitness of a string
+    function fitness($string){
+      return ((strLen(TARGET) - levenshtein($string, TARGET))/strLen(TARGET))*100;
+    }
+
+Not many PHP developers have heard of the [levenshtein](http://php.net/levenshtein) function, so I shall explain it briefly here. Basically, the levenshtein function returns the minimal number of characters that need to be replaced, inserted or removed from one string, to make it the same as another. The code surrounding the levenshtein function is just to turn its output from a 0 - strLen(TARGET) scale (0 being the fittest), to a 0-100 scale (100 being the fittest).
+
+Lastly, we need a way to find the fittest member of a population. Now, I haven't really given this *that* much thought with regards to optimisation - so don't laugh. 
+
+    <?php
+    //Find the fittest string in a population and remove them from the array
+    function getFittest(&$population){
+      $fittest = '';
+      $fittest_key = null;
+      foreach ($population as $key => $string){
+        if (fitness($string) > fitness($fittest)){
+          $fittest = $string;
+          $fittest_key = $key;
+        }
+      }
+      unset($population[$fittest_key]);
+      return $fittest;
+    }
+
+
+You may be wondering why the population is passed by reference, and the fittest member removed - all will become clear shortly (Spoiler: it's because we actually want to get the two fittest members of the group, not just one).
+
+Let's start to put all of this together and see what we get. We need to make an initial population, for wich we will use two completely random organisms. We also want to keep track of how many generations we've been through.
+
+    <?php
+    //Make the first population from two random strings
+    $population = newPopulation(randString(), randString());
+    $generation = 1;
+
+Now for the real meat and potatoes; the main loop.
+
+    <?php
+    do {
+      //Get the two fittest strings and make a new population from them
+      $one = getFittest($population);
+      $two = getFittest($population);
+      $population = newPopulation($one, $two);
+
+      if (!($generation % 100)) echo "Generation: {$generation}\\nMale:   {$one}\\nFemale: {$two}\\n";
+      $generation++;
+    } while ($one != TARGET && $two != TARGET);
+    echo "Finished at generation: {$generation}\\nMale:   {$one}\\nFemale: {$two}\\n";
+
+We get the fittest two members of the population, create a new population from them and then repeat. We do this until either of the two fittest members are the same as our target string.
+
+## But what does it do?
+I'm sorry if you feel like I've rushed through the code a bit - but it's what the code does that's important. What does it do? Well, here's the tail end of my first run:
+
+    ...
+    Generation: 9300
+    Male:   METHINKS IT IS LIKE A WE ASL
+    Female: METHINKS IT IS LIKE A WESASL
+    Generation: 9400
+    Male:   METHINKS IT IS LIKE A WENASL
+    Female: METHINKS IT IS LIKE A WENASL
+    Generation: 9500
+    Male:   METHINKS IT IS LIKE A WENAEL
+    Female: METHINKS IT IS LIKE A WENAEL
+    Finished at generation: 9554
+    Male:   METHINKS IT IS LIKE A WEASEL
+    Female: METHINKS IT IS LIKE A WEAAEL
+
+
+Hurrah! We've got a hit! In generation 9554, the 'male' (the fittest of the population - sorry ladies!) finally reached perfection. And it only took about 4 seconds. Let's try again!
+
+    ...
+    Generation: 30700
+    Male:   METHINKS IT IS LXRE A WEASEL
+    Female: METHINKS IT IS LXRE A WEASEL
+    Generation: 30800
+    Male:   METHINKS IT IS LXRE A WEASEL
+    Female: METHINKS IT IS LXRE A WEASEL
+    Generation: 30900
+    Male:   METHINKS IT IS LXKE A WEASEL
+    Female: METHINKS IT IS LXKE A WEASEL
+    Finished at generation: 30977
+    Male:   METHINKS IT IS LIKE A WEASEL
+    Female: METHINKS IT IS LXKE A WEASEL
+
+
+30977 generations this time. There is still a whole lot of randomness in this thing. After about 30 or 40 runs of the program, I've had from 965 generations, right up to 855,324 generations before we hit that magic phrase. When you consider the many trillions of years it would take to produce this phrase at random, that's quite an impressive result.
+
+## Incestuous weasels
+My weasels are incestuous; the chosen breeding pair always have the same parents. We know from nature that this can cause serious health problems because any genetic fault has a much higher chance of being passed on to offspring. I was very pleased to see that the longest runs (those that take more than 100,000 generations or so) tend to be the ones that develop a fault early on that sticks around for many generations. The lack of 'outsiders' for the weasels to mate with means that those 'defects' stick around longer - just like in nature; pedigree dogs have a great deal of health problems for this very reason. If you wanted to remove the inbreeding from the program, you could iterate over several different populations and mate the fittest from each population with the fittest of the other populations. The more populations you have, the less likely you would be to get problems from inbreeding. 
+
+## Fitness
+Whenever Dawkins' *Weasel program* is discussed, there always seems to be someone that suggests a 'latching' technique must have been employed to acheive the desired result. That is, when a correct letter is found by the fitness function it is kept as that letter 'artificially'. This is the main reason I chose the levenshtein function to decide how fit a given organism is; while it gives the program an idea of how fit an organism is, it doesn't let the program know *why*. This is a very important thing to note - as it's one of the main things that makes this program similar to natural evolution. If a gene was selected individually by the program, it would defeat the object of the exercise. 
+
+## A single branch
+It's important to remember that we are using our fitness function to *guess* which branch of the family tree will reach our intended goal first. It is quite possible that choosing a different breeding pair early on in the process would have got us to our goal quicker - but without near-infinite RAM, we won't be finding that out any time soon unless we're very lucky.
+
+## Tweaking the numbers
+From playing around with the numbers, I have found that there is a sweet-spot for the `MUTATION_CHANCE`. If `MUTATION_CHANCE` is very high (say around 1/5000), it tends to take more generations on average for the program to finish (around 50,000 to 400,000 or so generations) because many generations can pass without any change in the fittest organism. If the number is too low, however, (around 1/10 to 1/20) the organisms change wildly between generations and can take a long time to get close to the target phrase.
+
+`POPULATION_SIZE` doesn't have a sweet-spot as such. In general, the bigger the better; but if the population size becomes very large, it does take longer for each iteration to take place, which isn't as fun. Very small population sizes (2 is the minimum anyway) are terrible at evolving quickly.
+
+I urge you to grab a copy of the [full source code](https://github.com/TomNomNom/PHP-Evolution-Sim) and have a play with the numbers to see what effect they have for yourself. Play around with different fitness functions too; it's actually very interesting. Oh, and you should really run it in CLI mode, unless you feel like crashing your webserver or browser :-)

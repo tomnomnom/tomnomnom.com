@@ -1,0 +1,39 @@
+# A VERY simple PostgreSQL function interface in PHP
+
+Here's a no frills interface for PostgreSQL functions. At the moment it only works for functions that accept integer(s) and return a single integer. At least that's all I've tested it with.
+
+It does no error checking *at all*. I hope to expand on it at some point to make it a bit more flexible and robust. 
+
+
+    <?php
+    class SP
+    {
+      //Override method calls
+      function __call($function, $arguments)
+      {
+        $arguments = implode(',', $arguments);
+    
+        $query = 'select ' . $function .
+                 '(' . $arguments . ');';
+    
+        $result = pg_query($query);
+    
+        $ret = pg_fetch_array($result);
+    
+        return $ret[0];
+      }
+    }
+    
+
+
+Assuming you're already connected to the database, usage would be something like:
+
+
+    <?php
+    $sp = new SP();
+    echo $sp->getAgeFromId(3);
+
+
+Where `getAgeFromId()` is a PostgreSQL function written in PLPgSQL.
+
+It's only really a proof of concept to demonstrate an idea I was discussing with a colleague. I'll expand it and actually do something with it when I bother to learn PLPgSQL properly :-P

@@ -1,0 +1,86 @@
+# I need closure
+
+The recent release of PHP 5.3 has got me all excited. There's a whole bunch of new features such as [namespaces and late static binding.](http://php.net/releases/5_3_0.php) Sure, namespaces will be great for organising code at work, but the thing I'm most excited about is the addition of Lambda/anonymous functions and Closures (hurrah!).
+
+I've had a few conversations recently about what Lambda functions and Closures are good for. Because I'm such a nice guy, I've prepared a couple of examples.
+
+There are a whole bunch of PHP functions that accept a callback function (or rather, the name of a callback function) as an argument; `array_filter` and `preg_replace_callback` spring to mind. The problem with said functions is that you have to pre-define a function for use as a callback. I always thought it was an ugly solution that impeded the geneal flow of the code; it made it more difficult to read. It also means that you're taking up valuble scope with a function that's probably only going to be used once.
+
+Enter closures! (HURRAH!) Now you can just pass in your function code as an argument:
+
+
+    <?php
+    //These are the people I know
+    $people = array(
+      'Jim',   'Bob', 'Sam',
+      'Barry', 'Tom', 'Harry'
+    );
+    
+    //I no-longer like people who's name starts with 'B'
+    $people = array_filter($people, function($person){
+      return (substr($person, 0, 1) !== 'B');
+    });
+
+
+This sort of construction should look pretty familiar to anyone who's written any non-trivial JavaScript; particularly if you've used the JQuery framework. Sure you could have made the code almost as readable by pre-defining a function with a meaningful name, but a function called 'removeBPeople' sat all by itself would confuse anyone who hasn't seen the bit of code that uses it.
+
+Useful as this is, using closures as parameters in PHP's built in functions is really only syntactical sugar. What's really good fun is defining your own functions that accept a closure as an argument.
+
+Something you may do quite often is open a file, read through each line and then close the file. But isn't it a pain always having to remember to close the file? What could be done about that? I know! Let's wrap that logic (and then some) into a function. But how do we tell the function what to do with the file while it has it open? CLOSURES! HURRAH!
+
+
+    <?php
+    //Read a file line by line
+    function readLines($filename, $fn)
+    {
+      if (!file_exists($filename)) return;
+      $fh = fopen($filename, 'r');
+      if (!$fh) return;
+    
+      while (!feof($fh))
+      {
+        //Roughly equivlent to a 'yield' in Ruby
+        $fn(fgets($fh));
+      }
+    
+      fclose($fh);
+    }
+
+
+This function accepts a filename and a function. It checks the file exists, opens it, checks it was opened, iterates over the lines in the file and then closes it. But that's not all! For every line it iterates over, it executes the closure `$fn`, passing the line to the closure as an argument. 
+Note the comment about Ruby's 'yield'. If you've ever played with Ruby, this may all seem very [familiar](http://blog.rubybestpractices.com/posts/gregory/009-beautiful-blocks.html).
+
+Now we need to use it. For the purpose of this example, I have created a file called input.txt that contains the following:
+
+    line one
+    line two
+    line three
+    line four
+
+
+Let's say that we just want to display each line in the file. That's easy!
+
+
+    <?php
+    readLines('input.txt', function($line){
+      echo $line;
+    });
+
+
+The output of this code would be exactly the same as the input file. Magical!
+
+This is all well and good; but closures, like regular PHP functions, have their own scope. What if you want to use or affect the value of a variable defined outside the closure's scope? The lovely people who write PHP added the `use` statement for such a scenario.
+
+
+    <?php
+    //Capitalise the first letter of each line and add it to the output
+    $output = '';
+    readLines('input.txt', function($line) use(&$output){
+      $output .= ucfirst($line);
+    });
+    echo $output;
+
+
+Note that the variable `$output` is passed by reference in the `use` statement; this allows us to change the value of `$output` rather than just use it.
+
+These are only a couple of very simple examples. There are lots of wonderful ways to use closures. A lot of those uses are far too complicated for my tiny mind to comprehend; (just looking at the number of math-y looking symbols in the Wikipedia article on function Currying made me cry) but don't let my tiny mind deter you from the wonderfulness of CLOSURES! (HURRAH!)

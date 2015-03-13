@@ -1,0 +1,7 @@
+# That didn't take long
+
+I got bored and implemented my [aforementioned syntax highlighter](/posts/syntax_highlighting_with_phps_tokenizer). There's a couple of teething problems, but nothing that should be too hard to sort out. 
+
+Maybe now I can look at having switchable colour schemes :-)
+
+If you're wondering, I based the colours I've used on those from Dmitriy Zotikov's excellent vim theme [Xoria256](http://www.vim.org/scripts/script.php?script_id=2140). Have a look at the CSS file [here](/css/code-dark.css).

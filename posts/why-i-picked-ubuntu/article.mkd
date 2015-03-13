@@ -1,0 +1,20 @@
+# Why I picked Ubuntu
+
+Ok, so the title of this post may be a little misleading. 'Why I didn't pick Windows' would have been a little more fitting. 
+
+I bought myself a new laptop at the weekend; an HP DV2899 Artist Edition covered in pretty patterns. It came pre-loaded with Windows Vista Home Premium - which drove me mad within about 15 minutes. So mad was I driven: that I fired up NLite to make myself a Windows XP disk with the SATA drivers for my laptop already integrated. About 39 minutes later I found myself staring at a Device Manager window filled with question marks. Oh noes - none of the drivers work!
+
+After much Googling, cursing and several cigarettes: I decided to give up and stick with Vista. No problemo - I'll just reboot and hit F11 to recov... It didn't work. No error message, no nothing. After some more Googling: I found that the HP recovery partition relies on the hard drive having a Vista style master boot record. What? Why? I eventually found a tool to write said MBR to the disk and tried again. Huzzah! The HP Recovery Manager had appeared!
+
+*"Yes, I want to recover my system!", thought I.*
+*"Error: 0x003EF342", was the response.* 
+*"For fuck's sake!"* 
+
+That's when I started downloading Ubuntu. When my download had finished: I burned it to disk and booted to the 'Live Install' thing. I double clicked 'Install', played Majongg while I waited for it to finish, and the whole thing went off without a hitch. I rebooted to find all of my hardware working perfectly, my screen resolution properly detected and most importantly: not a Microshaft logo in sight. 
+
+I've only been using Ubuntu for 3 days now and, sad as it may be, I actually find it kind of relaxing. I love a lot of things about it; the anti-aliasing on the fonts, the flashy compiz stuff, and I definitely love apt-get!
+
+The only real disappointment about the whole Ubuntu thing is that I went out of my way to get a laptop with a reasonable graphics chipset. And while compiz is lovely - I did want to play a couple of games on this thing. More specifically: I wanted to play Half Life 2 and Need For Speed Most Wanted; neither of the which will run on Linux. Bummer :-(
+
+I'm going to end up forking out more money to buy a desktop PC with XP compatible hardware - I just know it.
+

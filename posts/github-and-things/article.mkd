@@ -1,0 +1,9 @@
+# GitHub and things
+
+I've decided to start sharing bits and pieces of my code with the world. I've seen plenty of posts on [Reddit](http://www.reddit.com) about how cool [GitHub](https://github.com/) is, so I thought I might try it. 
+
+Slight problem though: for my entire version-controlled life I've been using Subversion. Time to learn Git, then!
+
+Initial impressions are good, but I haven't really done anything other than install it on my development server, create a repository and share my [Tiny Template Engine](http://github.com/TomNomNom/tinytemplateengine/tree/master)
+
+Hopefully this will encourage me to be a little more active outside of working hours ;-)

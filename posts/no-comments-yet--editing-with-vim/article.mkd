@@ -1,0 +1,9 @@
+# No comments yet / Editing with Vim
+
+I'm still working on the comments system. I've been pretty busy doing non-techie things over the past couple of weeks - but I'll get a bit done each night this week. Promise. Maybe? Erm... Now for something completely unrelated to that!
+
+The vast majority of this site has been written using [Vim](http://www.vim.org). There was a time when I hated Vim, but then I found the wonders of the .vimrc file. After I'd spent a while playing around with the settings, options and mappings - I actually started to find it a lot less annoying than the likes of [Notepad++](http://notepad-plus.sourceforge.net) and even the mighty [Kate](http://kate-editor.org/).
+
+My .vimrc seems to change every few weeks or so, but I thought I might share it as-is.
+
+You can find it [here](./files/vimrc).

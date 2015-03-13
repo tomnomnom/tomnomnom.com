@@ -1,0 +1,13 @@
+# Busy bumble bees
+
+Arggghhh. No updates for too long. There's things happening an' that. 
+
+Firstly: I've been spending a lot of time with my beloved. You should be able to read about why as soon as she's [written about it.](http://www.theseboots.me)
+
+Secondly: I've been moving my stuff to a new server. This site has been left until last because it's the only one that gets any traffic (more than 3 hits a day). Everything else has kinda been put on hold until I get my server running the way I want. 
+
+The comments system is coming. Honest. I just want to get the server move out of the way first. 
+
+I'm also planning on doing a few intermediate-level PHP tutorials. Partly as a refresher course for me, and partly for the hand-full of people I know who are learning PHP at the moment :-P
+
+Stay 'tuned'.

@@ -1,0 +1,5 @@
+# Oooh! CSS an' that!
+
+Hurrah! It's a little more than just text now. I've added a bit of CSS, and decided the [YUI CSS Reset](http://developer.yahoo.com/yui/reset/) thing is great. It all validates through the first [HTML5 validator](http://html5.validator.nu/?=&doc=http://www.tomnomnom.com/) I found with Google, and it doesn't look all that bad considering the paltry levels of effort I've put in so far.
+
+At work we seem to be dealing with ever more fancy (or complicated, depending on your outlook) techniques for handling dynamic pages. I can't decide if I want to use some of the cool things I've seen or not. I could use [Smarty](http://www.smarty.net/), code my own template engine (rip one off), or perhaps I should just rebel: my web host provides SSH access - I could just hard-code the whole thing with vi :-D

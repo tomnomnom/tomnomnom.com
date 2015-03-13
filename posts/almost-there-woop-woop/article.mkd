@@ -1,0 +1,11 @@
+# Almost there! Woop woop!
+
+Well, I've been working on this thing quite a lot over the holidays!
+
+I've made an SQLite back-end to store the posts, made a simple template engine to keep my PHP and HTML (almost) separate, created a BBCode-esque parser so I don't have to write any HTML for the posts, made the RSS feed dynamic, made a (very) basic authentication system and a simple admin page for editing and creating new posts.
+
+There's still a bit to do - I'm going to implement caching for the index page and the RSS feed. I'd like to change the way my BBCode-rip-off parser handles line breaks too. At the moment it replaces carriage returns with `<br/>` tags - which is not really semantically valid. I'm just having problems matching double carriage returns; a problem I'm sure I'll fix.
+
+That's about it for site updates. In other news: my beloved has started her own [blog](http://www.theseboots.me). She's started writing a book, so I suggested a blog might help her keep track of things.
+
+Expect pictures of me painted head to toe in green paint soon ;-)
