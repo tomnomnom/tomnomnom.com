@@ -2,5 +2,5 @@
 echo markdown($articleContent);
 
 if ($publishTime){
-  echo "<em>First posted: ".date(DATE_RSS, $publishTime)."</em>";
+  echo "<em class=\"postTime\">First posted: ".date(DATE_RSS, $publishTime)."</em>";
 }

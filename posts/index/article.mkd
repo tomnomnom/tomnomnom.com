@@ -1,7 +1,7 @@
-# Work in progress
+# Site not under construction
 
-I've spent too much of my time writing things that never get released because 
-they're not finished. My fix for this is to accept that some things are 
-never finished and to release them anyway. 
+I haven't written anything here since 2010, but my posts still sometimes show up in
+search results. So [here they are](/posts/archive).
 
-[Here is an archive of my old blog posts.](/posts/archive)
+If you want to know more about me, [read my CV](http://tomhudson.co.uk).
+If you want to contact me, just [mention me on Twitter](https://twitter.com/TomNomNom).
