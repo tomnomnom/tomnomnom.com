@@ -69,14 +69,11 @@ header h1 { font-size: 3.5em; }
 header h2 { font-size: 1.1em; }
 header { margin-bottom: 1.5em; }
 
-section.info { 
-  font-size: 16px;
-}
-section.info h1 { 
+h1 { 
   font-size: 1.4em; 
   margin-bottom: 0.5rem;
 }
-section.info h2 { 
+h2 { 
   font-size: 1.1em; 
   margin-bottom: 0.5rem;
 }
