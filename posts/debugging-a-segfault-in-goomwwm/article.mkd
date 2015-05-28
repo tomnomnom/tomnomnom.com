@@ -90,14 +90,14 @@ I was finally getting somewhere.
 
 ## Grep Driven Development
 
-As I mentioned before, I'm not a C programmer; but I could still tell a few things from looking at the `box_hide` fuction:
+As I mentioned before, I'm not a C programmer; but I could still tell a few things from looking at the `box_hide` function:
 
 * It accepts a pointer to a `box`
 * A `box` has a `window`
 * There isn't any conditionals or logic, just a single function call
 
 It seemed like a likely candidate - windows get hidden when you close them after all - but there's not really
-much room for logic errors in a function that does nothing but call another fuction. I made the assumption that the
+much room for logic errors in a function that does nothing but call another function. I made the assumption that the
 problem existed somewhere `box_hide` was being called, rather than in `box_hide` itself.
 
 In true [GDD](http://stevenharman.net/bag-of-methods-module-and-grep-driven-development) style, I had a look for
