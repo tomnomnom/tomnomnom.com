@@ -183,6 +183,12 @@ What a wonderful Open Source world we live in.
 
 If you ask me, not knowing how to do something is a rubbish excuse for not doing it.
 
+## Addendum
+
+I've [been asked](https://twitter.com/craiga/status/603947520134348800) why I added a check to `client_close` instead
+of just adding a check to `box_hide` itself. The honest answer is that I probably should have done that, but I was instinctively
+mimicking what the original author had done elsewhere.
+
 ## Thanks
 I'd like to thank [Sean Pringle](http://aerosuidae.net/) for writing such an otherwise rock-solid window manager, and merging my
 pull request so quickly.
