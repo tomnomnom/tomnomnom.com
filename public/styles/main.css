@@ -33,7 +33,7 @@ h1, h2, h3 {
 p {
   line-height: 1.5em;
   margin: 0;
-  margin-bottom: 1.5em;
+  margin-bottom: 1.3em;
 }
 
 a {
@@ -95,7 +95,7 @@ hr {
 
 footer {
   display: block;
-  margin-top: 5em;
+  margin-top: 15em;
   font-size: 0.6em; 
 }
 
@@ -104,12 +104,15 @@ abbr {
 }
 
 ul {
+  line-height: 1.5em;
   list-style: none;
   padding-left: 1.5rem;
 }
 ul li:before {
   content: '\2794';
   margin-right: 0.4rem;
+}
+ul li {
 }
 
 @media all and (max-width: 600px) {

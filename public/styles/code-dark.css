@@ -1,6 +1,6 @@
 code { 
   font-family: 'Droid Sans Mono', monospace;
-  background-color: #1C1C1C; 
+  background-color: #232323; 
   color: #D78787;
   display: block; 
   padding: 1em;
@@ -11,13 +11,16 @@ code {
   margin-bottom: 1.5em;
 }
 
-p code {
+p code, li code {
   display: inline;
   color: #222222;
   font-size: inherit;
-  padding-left: 0;
-  padding-right: 0;
-  background-color: transparent;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 3px;
+  padding-right: 3px;
+  background-color: #EAEAEA;
+  border-radius: 3px;
 }
 
 .phps-t-open-tag {color: #D78787;}
