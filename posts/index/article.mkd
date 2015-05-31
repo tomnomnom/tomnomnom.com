@@ -5,7 +5,7 @@ I've written exactly one blog post since 2010, and here it is:
 * [Debugging a segfault in goomwwm](/posts/debugging-a-segfault-in-goomwwm)
 
 Everything before that was written when I was younger and more stupid, but I don't
-beleive in killing links without good reason, so [here are my old posts](/posts/archive).
+believe in killing links without good reason, so [here are my old posts](/posts/archive).
 
 If you want to know more about me, [read my CV](http://tomhudson.co.uk).
 If you want to contact me, just [mention me on Twitter](https://twitter.com/TomNomNom).
