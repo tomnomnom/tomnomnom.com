@@ -23,6 +23,8 @@ body {
   background-image: url('/images/sheep.png');
   background-repeat: no-repeat;
   background-position: bottom right;
+
+  box-shadow: 0px 5px 10px #CACACA;
 }
 
 h1, h2, h3 {
