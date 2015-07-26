@@ -1,0 +1,56 @@
+# Steak 
+My second child was born recently, and that - amongst other things - means that my partner has
+recently spent fourty two weeks and one day being pregnant.
+
+The NHS recommends that whilst pregnant you should *"Cook all meat and poultry thoroughly so
+it's steaming hot and there's no trace of pink or blood"*. For my partner this meant no rare 
+steak, and for her tastes: that meant no steak at all.
+
+> "What's the point in eating steak if it's well-done?"
+
+I really do love that woman. So much so that I too joined in the 'no steak' pact as a show of
+moral support.
+
+## A Tale Of Two Temperatures
+A good friend saw fit to grace us with her presence so that she could judge our baby's cuteness,
+and it seemed like a good opportunity to break the pact and cook up some finest Morrisons filet.
+
+![Raw steak](/images/posts/steak/raw-steak.jpg "Finest Morrisons Filet")
+
+The thing about cooking steak is, there's two conflicting things you want to achieve:
+
+1. You want the core temperature to reach a specific point.
+2. You want the [Maillard Reaction](https://en.wikipedia.org/wiki/Maillard_reaction) to take place on the outside of the steak.
+
+The reason these two things conflict is a difference in temperature.
+
+The Maillard Reaction is a chemical reaction that happens when you cook something.
+It's what makes food turn brown, makes toast taste better than bread, and it's what you need to make a steak taste great.
+It mostly happens at temperatures above 140°C (284°F), but generally speaking the hotter
+the better when it comes to the Maillard Reaction.
+
+The ideal core temperature for a steak on the other hand is around 53°C (~127°F) - or at least it
+is for how we like our steak; once you get to 60°C (140°F) you're getting into well-done
+territory.
+
+The traditional way to cook a steak is to put it in a bloody hot pan for a few minutes on each side.
+This allows the Maillard Reaction to take place on the surface of the steak, and it raises the
+core temperature of the steak at the same time; seemingly cooking two birds with one bloody hot stone.
+The problem is that by the time the very middle of the steak has reached the ideal temperature, the
+rest of the steak is overcooked. You get a gradient of doneness from well-done at the edges to
+medium-rare in the middle, or you get medium at the edges but raw in the middle. You get to pick
+the lesser of two evils.
+
+There's things you can do to improve the situation: you can leave your steak to come up to
+room temperature before you cook it, you can use thinner steak (although I'm not sure why
+you'd want to), or you can make like the French.
+
+## Under Vacuum
+[Sous-vide](https://en.wikipedia.org/wiki/Sous-vide) is French for 'under vacuum', and it refers
+to the practice of cooking food in airtight plastic bags submerged in a temperature-controlled
+water bath. The idea is that you use water as an efficient heat-transfer medium, without letting
+the water contaminate the food being cooked; and whilst keeping the juices and all the flavour in.
+
+The result of cooking sous-vide is a piece of steak with goal #1 acheived: an even 53°C throughout.
+But what about goal #2?
+

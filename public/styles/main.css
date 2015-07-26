@@ -129,3 +129,20 @@ ul li {
     font-size: 1.4em;
   }
 }
+
+blockquote {
+  font-family: 'Droid Serif', serif;
+  font-style: italic;
+  color: #777777;
+  font-size: 1.2em;
+  border-left: 3px solid #DDDDDD;
+  padding-left: 1em;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  border: 1px solid #777777;
+}
