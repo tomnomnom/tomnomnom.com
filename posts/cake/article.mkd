@@ -1,0 +1,89 @@
+# Cake
+
+I started this blog to write about programming and technology, but my domain name is
+probably better suited to writing about my other love: food.
+I've already written about [steak](/posts/steak), so I thought I should write about
+something that rhymes: cake.
+
+[There](http://www.bbc.co.uk/food/recipes/spongecake_1284)
+[sure](http://allrecipes.co.uk/recipe/12122/basic-plain-sponge-cake.aspx)
+[are](http://www.deliaonline.com/recipes/cuisine/european/english/all-in-one-sponge-cake-with-raspberry-and-mascarpone-cream.html)
+[a](http://www.maryberry.co.uk/recipes/great-british-bake-off-recipes/victoria-sandwich)
+[lot](http://goodfood.uktv.co.uk/recipe/paul-hollywoods-victoria-sponge/)
+of recipes for a regular old sponge cake on the internet. There's a few differences between
+them, the odd hint of vanilla extract here or a bit of margarine there, but they've
+all got at least one thing in common: eggs.
+
+The recipes vary in units for the other ingredients; grams, ounces and even - heaven forbid -
+[cups](https://www.youtube.com/watch?v=0uevI4-j-6A), but eggs are pretty much always specified
+as a whole number of eggs. Sometimes it's just '3 eggs', sometimes it's '3 large eggs' or
+'4 medium eggs', but it's mostly a variation on that theme.
+
+## Bad Eggs
+
+A quick survey of the eggs in my kitchen reveals quite a discrepency in weight.
+
+    Insert table of weights :)
+
+For a 3 egg recipe, I could have as much as X grams of variance!
+
+For a discipline such as baking, that so often requires precision, specifying '175 grams of flour',
+and then '3 eggs' just feels a little unfulfilling. Some correct
+for this potential inaccuracy by specifying a weight of egg, and [some recipes](http://www.chefsteps.com/activities/ten-minute-cake)
+go one step further by specifing the weight or egg white and egg yolk sperately!
+
+This can seem like a bit of a faff; you've got to mess around separating the eggs,
+when what you really want to be doing is eating cake as soon as possible. It can
+seem like a bit of a waste too: what if you only need to use 20% of an egg? If you've
+got no more baking planned for the day, what use is 80% of an egg?
+
+My (actually my mother's) solution is easy: weigh the eggs, use the same weight for your flour, butter and sugar.
+This eliminates the egg-weight inconsistency, doesn't waste any eggs, you can change the
+size of the cake by adding or removing eggs, and it's *easy*; you don't even need any scales.
+
+## Eureka
+
+If you've got [force-measuring scales](https://en.wikipedia.org/wiki/Weighing_scale#Force_measuring_.28weight.29_scales)
+you can just make a note of how much the eggs weigh. If you've got [balance scales](https://en.wikipedia.org/wiki/Weighing_scale#Balance_scales)
+you can put the eggs on the side usually used for the weights and the ingredients in the other.
+Or you could make like Archimedes.
+
+1. Find a large transparent container, like a clear plastic bowl or a glass tankard, and fill it
+roughly one quarter of the way with water.
+2. Find a second, smaller container (like a plastic beaker or another bowl) and put the eggs in it.
+3. Float the container of eggs in the water and watch the water level rise!
+4. Mark the water level on the outer container with a marker or bit of tape.
+5. Take the eggs out of the inner container and fill it with your next ingredient until the water
+level is back up to the mark.
+
+Repeat for the rest of your ingredients and you should have the roughly the same weight of everything.
+It's a good idea to weigh your dry ingredients first so that subsequent ingredients don't stick to the container.
+You can improve the accuracy by using taller, thinner containers; because the water level will change by a larger
+amount when adding a given amount of an ingredient.
+
+To see how accurate this is, I decided to test it. I used the Archimedean method to 'weigh' three eggs,
+and then tried my best to get the same weight of flour, butter and sugar.
+
+    Table of results :)
+
+I haven't actually done the experiment yet so I don't know how accurate it was.
+Is it more accurate than just '3 eggs' / what's the varience like?
+
+## The Proof Is In The Pudding
+
+I couldn't weigh out all of the ingredients for a cake without actually baking it.
+Cream the butter and sugar together, beat in the eggs, mix in the flour and stick
+it all in a couple of cake tins.
+I've found 15 to 20 minutes at 180°C (in an electric fan oven) works well for me.
+The classic test for checking if a cake is done or not is to stick a skewer in the
+middle of it; if it comes out covered in raw cake mixture: it ain't done yet.
+
+My favourite filling for a sponge cake is buttercream and seedless raspberry jam.
+I used to guess the quantities of butter and icing sugar for the buttercream, adding
+a bit more butter or a bit more sugar until it tasted right. But after actually bothering
+to weigh what I'm putting in, I've found that equal weights of butter and icing
+sugar makes for a pretty good result. Equal weights strike again.
+
+## TODO
+* Pictures; obv.
+* I admit that weighing the egg white and yolk separately is the best method etc etc...
