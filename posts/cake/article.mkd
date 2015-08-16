@@ -21,16 +21,35 @@ as a whole number of eggs. Sometimes it's just '3 eggs', sometimes it's '3 large
 
 ## Bad Eggs
 
-A quick survey of the eggs in my kitchen reveals quite a discrepency in weight.
+A quick survey of the eggs in my kitchen reveals quite a discrepency in weight. Here's a (sorted) list:
 
-    Insert table of weights :)
+      ----------------
+      | Egg | Weight |
+      |-----|--------|
+      |   0 | 51g    |
+      |   1 | 53g    |
+      |   2 | 53g    |
+      |   3 | 54g    |
+      |   4 | 57g    |
+      |   5 | 58g    |
+      |   6 | 60g    |
+      |   7 | 61g    |
+      |   8 | 62g    |
+      |   9 | 63g    |
+      |  10 | 65g    |
+      |  11 | 65g    |
+      ----------------
 
-For a 3 egg recipe, I could have as much as X grams of variance!
+These were all from a box of 'medium' eggs.
 
-For a discipline such as baking, that so often requires precision, specifying '175 grams of flour',
-and then '3 eggs' just feels a little unfulfilling. Some correct
-for this potential inaccuracy by specifying a weight of egg, and [some recipes](http://www.chefsteps.com/activities/ten-minute-cake)
-go one step further by specifing the weight or egg white and egg yolk sperately!
+One of the [first sponge cake recipes I found](http://www.bbc.co.uk/food/recipes/spongecake_1284)
+calls for '2 medium eggs'. Depending on which eggs I happened to pick for that recipe, I could be
+using as little as 104 grams of egg, or as much as 130 grams; a whopping 25% more.
+
+For a discipline such as baking, that so often requires precision, specifying '125 grams of flour',
+and then '2 eggs' just seems silly. Some recipes correct for the potential inaccuracy by specifying
+a weight of egg, and [some recipes](http://www.chefsteps.com/activities/ten-minute-cake)
+go one step further by specifing the weight of egg white and egg yolk sperately!
 
 This can seem like a bit of a faff; you've got to mess around separating the eggs,
 when what you really want to be doing is eating cake as soon as possible. It can
@@ -61,17 +80,23 @@ It's a good idea to weigh your dry ingredients first so that subsequent ingredie
 You can improve the accuracy by using taller, thinner containers; because the water level will change by a larger
 amount when adding a given amount of an ingredient.
 
-To see how accurate this is, I decided to test it. I used the Archimedean method to 'weigh' three eggs,
-and then tried my best to get the same weight of flour, butter and sugar.
+I used the Archimedean method to 'weigh' three eggs, and then tried my best to get the same weight of flour, butter and sugar.
+To see how accurate I'd been, I then weighed each ingredient with my digital scales.
 
-    Table of results :)
+      ------------------------------
+      | Ingredient | Actual Weight |
+      |------------|---------------|
+      |       Eggs | 175g          |
+      |      Sugar | 180g          |
+      |      Flour | 171g          |
+      |     Butter | 178g          |
+      ------------------------------
 
-I haven't actually done the experiment yet so I don't know how accurate it was.
-Is it more accurate than just '3 eggs' / what's the varience like?
+Not bad! Not bad at all! Out by 5 grams at the most; much less than the 25% out I *could* have been
+by blindly following a '3 egg' recipe.
 
 ## The Proof Is In The Pudding
 
-I couldn't weigh out all of the ingredients for a cake without actually baking it.
 Cream the butter and sugar together, beat in the eggs, mix in the flour and stick
 it all in a couple of cake tins.
 I've found 15 to 20 minutes at 180°C (in an electric fan oven) works well for me.
@@ -79,11 +104,11 @@ The classic test for checking if a cake is done or not is to stick a skewer in t
 middle of it; if it comes out covered in raw cake mixture: it ain't done yet.
 
 My favourite filling for a sponge cake is buttercream and seedless raspberry jam.
-I used to guess the quantities of butter and icing sugar for the buttercream, adding
-a bit more butter or a bit more sugar until it tasted right. But after actually bothering
-to weigh what I'm putting in, I've found that equal weights of butter and icing
-sugar makes for a pretty good result. Equal weights strike again.
+Equal weights work well for buttercream too; but it's much less critical. To save
+time (my partner was growing impatient) I weighed out 100 grams of butter and 100
+grams of icing sugar, and then mixed them up good and thorough.
 
 ## TODO
 * Pictures; obv.
 * I admit that weighing the egg white and yolk separately is the best method etc etc...
+* Isn't that technically by volume instead of by weight?
