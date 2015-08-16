@@ -1,9 +1,10 @@
 # Site (mostly) not under construction
 
-I've written exactly two blog posts since 2010, and here they are:
+I've written exactly three blog posts since 2010, and here they are:
 
 * [Debugging a segfault in goomwwm](/posts/debugging-a-segfault-in-goomwwm)
 * [Steak](/posts/steak)
+* [Cake](/posts/cake)
 
 Everything before that was written when I was younger and more stupid, but I don't
 believe in killing links without good reason, so [here are my old posts](/posts/archive).

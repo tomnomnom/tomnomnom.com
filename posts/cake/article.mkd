@@ -21,7 +21,7 @@ as a whole number of eggs. Sometimes it's just '3 eggs', sometimes it's '3 large
 
 ## Bad Eggs
 
-A quick survey of the eggs in my kitchen reveals quite a discrepency in weight. Here's a (sorted) list:
+A quick survey of the eggs in my kitchen reveals quite a discrepancy in weight. Here's a (sorted) list:
 
       ----------------
       | Egg | Weight |
@@ -49,7 +49,7 @@ using as little as 104 grams of egg, or as much as 130 grams; a whopping 25% mor
 For a discipline such as baking, that so often requires precision, specifying '125 grams of flour',
 and then '2 eggs' just seems silly. Some recipes correct for the potential inaccuracy by specifying
 a weight of egg, and [some recipes](http://www.chefsteps.com/activities/ten-minute-cake)
-go one step further by specifing the weight of egg white and egg yolk sperately!
+go one step further by specifying the weight of egg white and egg yolk separately!
 
 This can seem like a bit of a faff; you've got to mess around separating the eggs,
 when what you really want to be doing is eating cake as soon as possible. It can
@@ -67,18 +67,26 @@ you can just make a note of how much the eggs weigh. If you've got [balance scal
 you can put the eggs on the side usually used for the weights and the ingredients in the other.
 Or you could make like Archimedes.
 
-1. Find a large transparent container, like a clear plastic bowl or a glass tankard, and fill it
-roughly one quarter of the way with water.
-2. Find a second, smaller container (like a plastic beaker or another bowl) and put the eggs in it.
-3. Float the container of eggs in the water and watch the water level rise!
-4. Mark the water level on the outer container with a marker or bit of tape.
-5. Take the eggs out of the inner container and fill it with your next ingredient until the water
+Find a large transparent container, like a clear plastic bowl or a glass tankard, and fill it
+roughly one quarter of the way with water. Then find a second, smaller container
+(like a plastic beaker or another bowl) and put the eggs in it. I used a measuring jug
+and a drinks bottle with the top cut off.
+
+![Containers](/images/posts/cake/containers.jpg "Plastic Containers")
+
+Float the container of eggs in the water and watch the water level rise!
+Mark the water level on the outer container with a marker or bit of tape.
+
+![Marking the water level](/images/posts/cake/marking-eggs.jpg "Marking the water level")
+
+Take the eggs out of the inner container and fill it with your next ingredient until the water
 level is back up to the mark.
 
-Repeat for the rest of your ingredients and you should have the roughly the same weight of everything.
+
+![Weighing the butter](/images/posts/cake/archimedes-butter.jpg "Weighing the butter")
+
+Repeat for the rest of your ingredients and you should have roughly the same weight of everything.
 It's a good idea to weigh your dry ingredients first so that subsequent ingredients don't stick to the container.
-You can improve the accuracy by using taller, thinner containers; because the water level will change by a larger
-amount when adding a given amount of an ingredient.
 
 I used the Archimedean method to 'weigh' three eggs, and then tried my best to get the same weight of flour, butter and sugar.
 To see how accurate I'd been, I then weighed each ingredient with my digital scales.
@@ -92,8 +100,11 @@ To see how accurate I'd been, I then weighed each ingredient with my digital sca
       |     Butter | 178g          |
       ------------------------------
 
-Not bad! Not bad at all! Out by 5 grams at the most; much less than the 25% out I *could* have been
-by blindly following a '3 egg' recipe.
+Not bad! Not bad at all! Out by 5 grams at the most; much less than the 25% I *could* have been
+out by blindly following a '3 egg' recipe.
+
+
+![Accuracy check](/images/posts/cake/digital-butter.jpg "Accuracy check")
 
 ## The Proof Is In The Pudding
 
@@ -103,12 +114,23 @@ I've found 15 to 20 minutes at 180°C (in an electric fan oven) works well for m
 The classic test for checking if a cake is done or not is to stick a skewer in the
 middle of it; if it comes out covered in raw cake mixture: it ain't done yet.
 
+![Baked cakes](/images/posts/cake/baked-cakes.jpg "Baked cakes")
+
 My favourite filling for a sponge cake is buttercream and seedless raspberry jam.
 Equal weights work well for buttercream too; but it's much less critical. To save
-time (my partner was growing impatient) I weighed out 100 grams of butter and 100
-grams of icing sugar, and then mixed them up good and thorough.
+time (my partner was growing impatient by this point) I weighed out 100 grams of butter and 100
+grams of icing sugar with my digital scales, and then mixed them up good and proper.
 
-## TODO
-* Pictures; obv.
-* I admit that weighing the egg white and yolk separately is the best method etc etc...
-* Isn't that technically by volume instead of by weight?
+![A slide of heav^cake](/images/posts/cake/slice.jpg "A slice of heav^wcake")
+
+Just don't do what I did and put the buttercream on the cake before it's fully cooled.
+I did say I wanted to eat cake as soon as possible. Whoops.
+
+## Why?
+I used this method to make cake at university, when I actually didn't have any
+weighing scales. I tried making a balance scale, but that turned out to be
+quite difficult to do. Given the choice, I would weigh the eggs without shells
+on a digital scale, but that's not always an option.
+
+The cake was lovely by the way; despite the melted buttercream. It got t'other 'alf's
+seal of approval anyway.
