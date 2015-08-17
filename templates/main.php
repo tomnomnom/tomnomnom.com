@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="theme-color" content="#119C11">
     <link rel="icon" sizes="64x64" href="/favicon.ico" type="image/x-icon">
-    <link href="//fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Droid+Serif|Droid+Sans|Droid+Sans+Mono" rel="stylesheet" type="text/css">
     <link href="/styles/main.css" rel="stylesheet" type="text/css"/>
     <link href="/styles/code-dark.css" rel="stylesheet" type="text/css"/>
   </head>
