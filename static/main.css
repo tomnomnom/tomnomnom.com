@@ -10,7 +10,7 @@ nav ul {
 	list-style-type: none;
 	padding-left: 0;
 
-	li {
+	& li {
 		display: inline-block;
 	}
 }
@@ -18,3 +18,44 @@ nav ul {
 p.signoff {
 	text-align: right;
 }
+
+div.talk {
+    display: grid;
+    grid-template-columns: 1fr fit-content(320px);
+    grid-template-rows: 1fr 1.5rem;
+    grid-template-areas:
+        "info   thumbnail"
+        "footer thumbnail";
+    grid-gap: 1rem;
+
+    background-color: #DDD;
+    margin: 0.5rem;
+    padding: 1rem;
+    border-radius: 3px;
+
+    & .info {
+        grid-area: info;
+    }
+
+    & .footer {
+        grid-area: footer;
+    }
+
+    & .thumbnail {
+        grid-area: thumbnail;
+        text-align: right;
+    }
+
+    & h2 {
+        margin-top: 0;
+        font-size: 1.25rem;
+    }
+
+    & .thumbnail img {
+        width: 320px;
+        height: 240px;
+        border: 3px solid #999;
+        border-radius: 3px;
+    }
+}
+

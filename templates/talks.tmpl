@@ -1,0 +1,19 @@
+{{template "header"}}
+
+{{range .talks}}
+
+    <div class=talk>
+        <div class=info>
+            <h2><a href="https://www.youtube.com/watch?v={{.ID}}">{{.Title}}</a></h2>
+        </div>
+        <div class=footer>
+            <time datetime="{{.Published}}">{{.Published}}</time>
+        </div>
+        <div class=thumbnail>
+            <img src="/static/thumbnails/{{.ID}}.jpg" width=50% height=50%>
+        </div>
+    </div>
+
+{{end}}
+
+{{template "footer"}}
