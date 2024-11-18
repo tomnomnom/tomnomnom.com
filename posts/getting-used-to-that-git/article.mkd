@@ -1,9 +1,0 @@
-# Getting used to that Git
-
-I decided I would start learning to use Git tonight. After watching Heroes, that is. 
-
-I've made a few changes to my [Tiny Template Engine](http://github.com/TomNomNom/tinytemplateengine/tree/master) - like the ability to include a 'component' file by using a special tag in a template.
-
-Git seems pretty nice, but it's taking a while for my brain to get out of Subversion mode. It's odd pulling and pushing things around instead of just committing to a repository, but I'm sure I'll get used to it. 
-
-Given that I got home this evening and actually did some coding, I think having some code open to the public may well encourage me to be a little more active, [as I thought](http://tomnomnom.com/p_github_and_things). Expect to see a few more of my pet projects appearing on GitHub in the future :-)

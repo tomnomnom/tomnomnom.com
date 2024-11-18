@@ -1,9 +1,0 @@
-# An easier way to get PostgreSQL sequence names
-
-I got owned. OK, not owned exactly... But reminded of my nooby-ness. Reddit user [Thristian99](http://www.reddit.com/user/thristian99/) gave me a much simpler solution to finding out the name of a sequence...
-
-
-    select pg_get_serial_sequence('tablename', 'fieldname');
-
-
-That's a whole lot nicer :-) I did think it nice to know how the names are actually handled, though - and it only works if the tables / sequences have already been created, of course.

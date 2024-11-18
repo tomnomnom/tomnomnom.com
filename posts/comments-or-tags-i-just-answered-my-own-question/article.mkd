@@ -1,7 +1,0 @@
-# Comments or tags? I just answered my own question
-
-I've taken a bit of a break from developing the back-end for TomNomNom.com recently. Mainly because there's been a whole bunch of stuff going on in the rest of my life; but I have decided to add a new feature this weekend. I was torn between adding a comments system or a tagging system. I wasn't sure which to go for.
-
-Ah hah! An idea! I'll ask people for suggestions on which one I should do first! They can just comment on thi... Oh. That'll be a comments system then.
-
-Sometimes moments of stupidity are a good way to come to conclusions :-P

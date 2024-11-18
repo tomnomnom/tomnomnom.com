@@ -1,6 +1,0 @@
-# TODO
-
- * Published and updated time on post pages
- * Auto generate homepage based on manifests
- * Github and CV links etc
- * Fix internal links to use dashes instead of underscores

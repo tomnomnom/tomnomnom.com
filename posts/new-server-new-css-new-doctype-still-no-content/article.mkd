@@ -1,7 +1,0 @@
-# New server, new CSS, new doctype, still no content
-
-If you're reading this: my DNS changes have propagated, and you're looking at my very slightly altered design on my new server.  
-
-As you can see: it's a little less bland, features a picture of my ugly mug, and uses the slightly more accepted XHTML 1.1 doctype instead of the HTML5 one. Hurrah!
-
-There should be some more changes to follow - but I could be lying.

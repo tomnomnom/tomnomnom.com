@@ -1,5 +1,0 @@
-# I stole an idea
-
-I have decided to steal [Andy's](http://www.andysmith.co.uk) idea. If I wait until I've got something awesome to put online: then it'll probably never happen. I'm just going to start making something and see where it goes. So far: I've bought a domain and written this little bit of HTML you see rendered before you.
- 
-Web monkeys may notice that I'm using the HTML5 doctype. I have a very good reason for that: I'll probably be too lazy to change it when it becomes standard :-P

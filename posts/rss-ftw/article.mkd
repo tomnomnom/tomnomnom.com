@@ -1,7 +1,0 @@
-# RSS FTW!
-
-Oooh! I've added an [RSS feed](rss/main.rss)! I'm pretty sure that makes me a fancy-pants Web 2.0 kinda guy. Well, maybe it would; if I hadn't of just hard coded the XML file for it :-D
- 
-Just click on the little RSS icon in the top right of the page! Huzzah!
- 
-It's actually kind of satisfying not using any server-side scripting to do this. It's not going to last for long if I keep up my current rate of updates though. Damn.

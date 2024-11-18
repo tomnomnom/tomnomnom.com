@@ -1,9 +1,0 @@
-# I give in. JQuery is awesome
-
-After spending far too long making my AJAX-y twitter feed work across all browsers: I decided to try JQuery. I know, I know... I'm behind the times - but I didn't want to start learning JQuery until I was a little more experienced in raw JavaScript; I wanted to know about the pitfalls that JQuery helps to patch over.
-
-The results are in: JQuery is awesome. It took me a whole 20 minutes to make [something that would have otherwise taken me hours](http://edutom.co.uk/jquery/). I wanted to hate JQuery, I really did; I wanted to keep tight hold of my getElementById() and be one of the few not jumping on the JavaScript-framework-bandwagon; but JQuery just makes things so damn *easy*.
-
-If only you could have been there to see the big stupid grin on my face as I tested something quite complex in lots of different browsers and had it work first time in all of them.
-
-Hurrah for JQuery!
