@@ -11,6 +11,7 @@ import (
 	"os"
 	"slices"
 	"strings"
+	"time"
 )
 
 const talksFile = "static/talks.json"
@@ -27,6 +28,8 @@ type talk struct {
 	ChannelID     string   `json:"channelId"`
 	Description   string   `json:"description"`
 	Tags          []string `json:"tags"`
+
+	Date string `json:"-"`
 }
 
 func (t talk) getInfoURL(youtubeKey string) string {
@@ -93,18 +96,27 @@ func (t *talk) update(youtubeKey string) error {
 	return nil
 }
 
-func getTalks() ([]talk, error) {
+func getTalks() ([]*talk, error) {
 
-	var talks []talk
+	var talks []*talk
 	err := json.Unmarshal(talksJSON, &talks)
 
 	if err != nil {
 		return talks, err
 	}
 
-	slices.SortFunc(talks, func(a, b talk) int {
+	slices.SortFunc(talks, func(a, b *talk) int {
 		return cmp.Compare(b.Published, a.Published)
 	})
+
+	for _, talk := range talks {
+		t, err := time.Parse(time.RFC3339, talk.Published)
+		if err != nil {
+			return talks, err
+		}
+
+		talk.Date = t.Format("January 2, 2006")
+	}
 
 	return talks, err
 }

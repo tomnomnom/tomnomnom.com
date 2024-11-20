@@ -22,16 +22,17 @@ p.signoff {
 div.talk {
     display: grid;
     grid-template-columns: 1fr fit-content(320px);
-    grid-template-rows: 1fr 40px;
+    grid-template-rows: 1fr fit-content(20px);
     grid-template-areas:
         "info   thumbnail"
         "footer thumbnail";
     grid-gap: 1rem;
 
     background-color: #DDD;
-    margin: 0.5rem;
-    padding: 1rem;
-    border-radius: 5px;
+    margin: 1rem;
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 3px solid #BBB;
     
     & a {
         text-decoration: none;
@@ -44,6 +45,15 @@ div.talk {
 
     & .footer {
         grid-area: footer;
+
+        & a {
+            color: #666;
+        }
+
+        & span {
+            font-size: 1.25rem;
+            vertical-align: middle;
+        }
     }
 
     & .thumbnail {
@@ -53,23 +63,23 @@ div.talk {
 
     & h2 {
         margin-top: 0;
+        margin-bottom: 0;
         font-size: 1.5rem;
     }
 
     & img.thumbnail {
         width: 320px;
         height: 180px;
-        border: 3px solid #999;
-        border-radius: 3px;
+        border: 3px solid #BBB;
+        border-radius: 10px;
     }
 
     & img.channel-icon {
         width: 40px;
         height: 40px;
-        border: 3px solid #999;
-        border-radius: 20px;
+        border: 3px solid #BBB;
+        border-radius: 30px;
         vertical-align: middle;
-        margin-right: 0.5rem;
     }
 }
 
