@@ -1,86 +1,164 @@
 [
   {
-    "id": "FTeE3OrTNoA",
-    "published": "2020-04-22T20:35:06Z",
-    "title": "Hacker101 - JavaScript for Hackers (Created by @STOKfredrik)",
-    "channel": "HackerOne",
-    "channelId": "UCsgzmECky2Q9lQMWzDwMhYw"
-  },
-  {
-    "id": "l8iXMgk2nnY",
-    "published": "2019-06-22T14:52:13Z",
-    "title": "VIM tutorial: linux terminal tools for bug bounty pentest and redteams with @tomnomnom",
-    "channel": "STÖK",
-    "channelId": "UCQN2DsjnYH60SFBIA6IkNwg"
-  },
-  {
-    "id": "SYExiynPEKM",
-    "published": "2021-04-19T16:42:48Z",
-    "title": "Live Recon and Automation on Shopify's Bug Bounty Program with @TomNomNomDotCom",
-    "channel": "NahamSec",
-    "channelId": "UCCZDt7MuC3Hzs6IH4xODLBw"
-  },
-  {
-    "id": "QSq-aYYQpro",
-    "published": "2022-12-17T10:55:09Z",
-    "title": "#NahamCon2022EU: Command-Line Data-Wrangling by Tomnomnom",
-    "channel": "NahamSec",
-    "channelId": "UCCZDt7MuC3Hzs6IH4xODLBw"
+    "id": "2R4YXEAG6AI",
+    "published": "2019-09-13T22:04:50Z",
+    "title": "Web Hacking Pro Tips #18: @tomnomnom Tom Hudson",
+    "originalTitle": "Web Hacking Pro Tips #18: @tomnomnom Tom Hudson",
+    "channel": "Web Development Tutorials",
+    "channelId": "UCS0y5e-AMsZO8GEFtKBAzkA",
+    "description": "",
+    "tags": [
+      "interview"
+    ]
   },
   {
     "id": "6zgMglfSZkI",
     "published": "2024-06-18T16:56:22Z",
-    "title": "#NahamCon2024: Sluicing Scripts | @TomNomNomDotCom",
+    "title": "#NahamCon2024: Sluicing Scripts | @TomNomNomDotCom@TomNomNomDotCom",
+    "originalTitle": "#NahamCon2024: Sluicing Scripts | @TomNomNomDotCom@TomNomNomDotCom",
     "channel": "NahamSec",
-    "channelId": "UCCZDt7MuC3Hzs6IH4xODLBw"
-  },
-  {
-    "id": "W4_QCSIujQ4",
-    "published": "2020-06-24T17:49:42Z",
-    "title": "Who, What, Where, When, Wordlist by @TomNomNom #NahamCon2020",
-    "channel": "NahamSec",
-    "channelId": "UCCZDt7MuC3Hzs6IH4xODLBw"
-  },
-  {
-    "id": "-ZctTwDEng0",
-    "published": "2022-09-30T20:07:47Z",
-    "title": "TomNomNom Discord AMA",
-    "channel": "Bishop Fox",
-    "channelId": "UCE8o_Vx1nbvaGf_N0EsIgjg"
+    "channelId": "UCCZDt7MuC3Hzs6IH4xODLBw",
+    "description": "",
+    "tags": []
   },
   {
     "id": "BnQBp83YbqY",
     "published": "2023-07-12T11:12:27Z",
     "title": "JSluice: There's Gold In Them Thar Files by Tomnomnom",
+    "originalTitle": "JSluice: There's Gold In Them Thar Files by Tomnomnom",
     "channel": "BSides Leeds",
-    "channelId": "UCdnz7EZERHqmluR8RC2Y8pA"
+    "channelId": "UCdnz7EZERHqmluR8RC2Y8pA",
+    "description": "",
+    "tags": []
   },
   {
-    "id": "p4em-0MwtIg",
-    "published": "2021-07-01T11:30:08Z",
-    "title": "Hacker Heroes #3 - @TomNomNom (Interview)",
-    "channel": "Intigriti",
-    "channelId": "UCcBgAEHAW0ESGwfoLJYg_Tg"
+    "id": "DvS_ew77GXA",
+    "published": "2018-02-02T20:30:18Z",
+    "title": "Passive-ish Recon Techniques by Tom Hudson",
+    "originalTitle": "Passive-ish Recon Techniques by Tom Hudson",
+    "channel": "BSides Leeds",
+    "channelId": "UCdnz7EZERHqmluR8RC2Y8pA",
+    "description": "",
+    "tags": []
+  },
+  {
+    "id": "DwHJrh3zRH0",
+    "published": "2015-06-26T14:55:22Z",
+    "title": "Hey!: Tom Hudson - Let's build a virtual machine!",
+    "originalTitle": "Hey!: Tom Hudson - Let's build a virtual machine!",
+    "channel": "Hey! Presents",
+    "channelId": "UCg1UJuhmAHLWbwBr9VKniEA",
+    "description": "",
+    "tags": []
+  },
+  {
+    "id": "FTeE3OrTNoA",
+    "published": "2020-04-22T20:35:06Z",
+    "title": "Hacker101 - JavaScript for Hackers (Created by @STOKfredrik)",
+    "originalTitle": "Hacker101 - JavaScript for Hackers (Created by @STOKfredrik)",
+    "channel": "HackerOne",
+    "channelId": "UCsgzmECky2Q9lQMWzDwMhYw",
+    "description": "",
+    "tags": []
+  },
+  {
+    "id": "OVf0xP4BLq0",
+    "published": "2017-04-20T13:29:03Z",
+    "title": "Tom Hudson - Writing Readable Code",
+    "originalTitle": "Tom Hudson - Writing Readable Code",
+    "channel": "Sky Betting \u0026 Gaming Technology",
+    "channelId": "UCKhLYGIGTBiD-9zyGkDwfDA",
+    "description": "",
+    "tags": []
+  },
+  {
+    "id": "QSq-aYYQpro",
+    "published": "2022-12-17T10:55:09Z",
+    "title": "#NahamCon2022EU: Command-Line Data-Wrangling by Tomnomnom",
+    "originalTitle": "#NahamCon2022EU: Command-Line Data-Wrangling by Tomnomnom",
+    "channel": "NahamSec",
+    "channelId": "UCCZDt7MuC3Hzs6IH4xODLBw",
+    "description": "",
+    "tags": []
+  },
+  {
+    "id": "SYExiynPEKM",
+    "published": "2021-04-19T16:42:48Z",
+    "title": "Live Recon and Automation on Shopify's Bug Bounty Program with @TomNomNomDotCom",
+    "originalTitle": "Live Recon and Automation on Shopify's Bug Bounty Program with @TomNomNomDotCom",
+    "channel": "NahamSec",
+    "channelId": "UCCZDt7MuC3Hzs6IH4xODLBw",
+    "description": "",
+    "tags": []
+  },
+  {
+    "id": "W4_QCSIujQ4",
+    "published": "2020-06-24T17:49:42Z",
+    "title": "Who, What, Where, When, Wordlist by @TomNomNom #NahamCon2020",
+    "originalTitle": "Who, What, Where, When, Wordlist by @TomNomNom #NahamCon2020",
+    "channel": "NahamSec",
+    "channelId": "UCCZDt7MuC3Hzs6IH4xODLBw",
+    "description": "",
+    "tags": []
   },
   {
     "id": "klYi2-D9yIU",
     "published": "2020-09-22T07:45:00Z",
     "title": "InfoSec Journeys #8 - TomNomNom",
+    "originalTitle": "InfoSec Journeys #8 - TomNomNom",
     "channel": "InfoSec Real",
-    "channelId": "UC2flvup7giBpysO-4wdynMg"
+    "channelId": "UC2flvup7giBpysO-4wdynMg",
+    "description": "",
+    "tags": []
+  },
+  {
+    "id": "l8iXMgk2nnY",
+    "published": "2019-06-22T14:52:13Z",
+    "title": "VIM tutorial: linux terminal tools for bug bounty pentest and redteams with @tomnomnom",
+    "originalTitle": "VIM tutorial: linux terminal tools for bug bounty pentest and redteams with @tomnomnom",
+    "channel": "STÖK",
+    "channelId": "UCQN2DsjnYH60SFBIA6IkNwg",
+    "description": "",
+    "tags": []
   },
   {
     "id": "nPK0x3jU4wQ",
     "published": "2019-10-09T11:30:02Z",
     "title": "09/29/2019 - Live Bug Bounty Recon Session on Yahoo (meg, assetfinder, etc) w/ @Tomnomnom",
+    "originalTitle": "09/29/2019 - Live Bug Bounty Recon Session on Yahoo (meg, assetfinder, etc) w/ @Tomnomnom",
     "channel": "NahamSec",
-    "channelId": "UCCZDt7MuC3Hzs6IH4xODLBw"
+    "channelId": "UCCZDt7MuC3Hzs6IH4xODLBw",
+    "description": "",
+    "tags": []
   },
   {
-    "id": "2R4YXEAG6AI",
-    "published": "2019-09-13T22:04:50Z",
-    "title": "Web Hacking Pro Tips #18: @tomnomnom Tom Hudson",
-    "channel": "Web Development Tutorials",
-    "channelId": "UCS0y5e-AMsZO8GEFtKBAzkA"
+    "id": "p4em-0MwtIg",
+    "published": "2021-07-01T11:30:08Z",
+    "title": "Hacker Heroes #3 - @TomNomNom (Interview)",
+    "originalTitle": "Hacker Heroes #3 - @TomNomNom (Interview)",
+    "channel": "Intigriti",
+    "channelId": "UCcBgAEHAW0ESGwfoLJYg_Tg",
+    "description": "",
+    "tags": []
+  },
+  {
+    "id": "pDBOC6I3K8g",
+    "published": "2018-03-13T15:19:18Z",
+    "title": "Big Numbers and the 1Hz CPU with Tom Hudson",
+    "originalTitle": "Big Numbers and the 1Hz CPU with Tom Hudson",
+    "channel": "NewRedo",
+    "channelId": "UCbUCJqsGVuiUsCloaU1s9mQ",
+    "description": "",
+    "tags": []
+  },
+  {
+    "id": "-ZctTwDEng0",
+    "published": "2022-09-30T20:07:47Z",
+    "title": "TomNomNom Discord AMA",
+    "originalTitle": "TomNomNom Discord AMA",
+    "channel": "Bishop Fox",
+    "channelId": "UCE8o_Vx1nbvaGf_N0EsIgjg",
+    "description": "",
+    "tags": []
   }
 ]

@@ -1,54 +1,30 @@
 package main
 
 import (
-	"net/http"
-
-	"github.com/gin-gonic/gin"
+	"flag"
+	"log"
+	"os"
 )
 
 func main() {
-	r := gin.Default()
 
-	r.LoadHTMLFiles(
-		"templates/header.tmpl",
-		"templates/footer.tmpl",
-		"templates/index.tmpl",
-		"templates/talks.tmpl",
-	)
-	r.Static("/static", "./static")
+	flag.Parse()
 
-	r.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.tmpl", gin.H{
-			"title": "Main website",
-		})
-	})
+	if _, err := os.Stat("./static"); err != nil {
+		log.Fatalf("failed to stat static dir: %s", err)
+	}
 
-	r.GET("/talks.json", func(c *gin.Context) {
-		talks, err := getTalks()
-		if err != nil {
-			c.JSON(http.StatusInternalServerError, gin.H{
-				"error": err.Error(),
-			})
-			return
-		}
+	var fn func() error
 
-		c.JSON(http.StatusOK, talks)
-	})
+	switch flag.Arg(0) {
+	case "update-talks":
+		fn = updateTalks
+	default:
+		fn = serve
+	}
 
-	r.GET("/talks", func(c *gin.Context) {
-		talks, err := getTalks()
-		if err != nil {
-			// TODO: HTML error pages
-			c.JSON(http.StatusInternalServerError, gin.H{
-				"error": err.Error(),
-			})
-			return
-		}
-
-		c.HTML(http.StatusOK, "talks.tmpl", gin.H{
-			"talks": talks,
-		})
-	})
-
-	r.Run(":8080")
+	err := fn()
+	if err != nil {
+		log.Fatalf("error running handler: %s", err)
+	}
 }
