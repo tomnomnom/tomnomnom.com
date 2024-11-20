@@ -1,5 +1,20 @@
 #!/usr/bin/env bash
-mkdir -p static/thumbnails
+
+ROOT_DIR=$(realpath "$(dirname $0)/..")
+
+mkdir -p $ROOT_DIR/static/thumbnails
+
+
+cat $ROOT_DIR/static/talks.json | jq -r '.[] | .id' |
+
 while read VIDEO_ID; do
-	curl -s "https://i.ytimg.com/vi/$VIDEO_ID/sddefault.jpg" -o "static/thumbnails/$VIDEO_ID.jpg"
+	THUMB_FILE="$ROOT_DIR/static/thumbnails/$VIDEO_ID.jpg"
+
+	if [ -f "$THUMB_FILE" ]; then
+		echo "Skipping $VIDEO_ID (file exists)"
+		continue
+	fi
+
+	echo "Fetching thumbnail for $VIDEO_ID"
+	curl -s "https://i.ytimg.com/vi/$VIDEO_ID/mqdefault.jpg" -o "$THUMB_FILE"
 done
