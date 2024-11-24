@@ -6,7 +6,7 @@
     "originalTitle": "Web Hacking Pro Tips #18: @tomnomnom Tom Hudson",
     "channel": "Web Development Tutorials",
     "channelId": "UCS0y5e-AMsZO8GEFtKBAzkA",
-    "description": "",
+    "description": "A chat with the wonderful Pete Yaworski about life and hacking.",
     "tags": [
       "interview"
     ]
@@ -18,7 +18,7 @@
     "originalTitle": "#NahamCon2024: Sluicing Scripts | @TomNomNomDotCom@TomNomNomDotCom",
     "channel": "NahamSec",
     "channelId": "UCCZDt7MuC3Hzs6IH4xODLBw",
-    "description": "",
+    "description": "A talk about using jsluice to extract interesting bits from JavaScript files by running tree-sitter queries.",
     "tags": []
   },
   {
@@ -28,7 +28,7 @@
     "originalTitle": "JSluice: There's Gold In Them Thar Files by Tomnomnom",
     "channel": "BSides Leeds",
     "channelId": "UCdnz7EZERHqmluR8RC2Y8pA",
-    "description": "",
+    "description": "The talk in which I announced jsluice, a tool for finding URLs, secrets, and other interesting things in JavaScript.",
     "tags": []
   },
   {
@@ -38,7 +38,7 @@
     "originalTitle": "Passive-ish Recon Techniques by Tom Hudson",
     "channel": "BSides Leeds",
     "channelId": "UCdnz7EZERHqmluR8RC2Y8pA",
-    "description": "",
+    "description": "I think this was my first security talk. I talked about meg for the first time, and the ideas that led to its development.",
     "tags": []
   },
   {
@@ -48,7 +48,7 @@
     "originalTitle": "Hey!: Tom Hudson - Let's build a virtual machine!",
     "channel": "Hey! Presents",
     "channelId": "UCg1UJuhmAHLWbwBr9VKniEA",
-    "description": "",
+    "description": "Live-coding can be risky, but it worked out OK this time. Writing a simple language VM in Go live on stage.",
     "tags": []
   },
   {
@@ -58,7 +58,7 @@
     "originalTitle": "Hacker101 - JavaScript for Hackers (Created by @STOKfredrik)",
     "channel": "HackerOne",
     "channelId": "UCsgzmECky2Q9lQMWzDwMhYw",
-    "description": "",
+    "description": "A video I worked on with STÖK for HackerOne. An intro to using Chrome's DevTools to explore web applications.",
     "tags": []
   },
   {
@@ -68,7 +68,7 @@
     "originalTitle": "Tom Hudson - Writing Readable Code",
     "channel": "Sky Betting \u0026 Gaming Technology",
     "channelId": "UCKhLYGIGTBiD-9zyGkDwfDA",
-    "description": "",
+    "description": "I've spent a lot of time reading code, and I developed a list of things that bug me along the way and then did a talk about it.",
     "tags": []
   },
   {
@@ -78,7 +78,7 @@
     "originalTitle": "#NahamCon2022EU: Command-Line Data-Wrangling by Tomnomnom",
     "channel": "NahamSec",
     "channelId": "UCCZDt7MuC3Hzs6IH4xODLBw",
-    "description": "",
+    "description": "I spend a lot of time trying to get text from one format to another, so I did a talk about how to do that on the command-line.",
     "tags": []
   },
   {
@@ -88,7 +88,7 @@
     "originalTitle": "Live Recon and Automation on Shopify's Bug Bounty Program with @TomNomNomDotCom",
     "channel": "NahamSec",
     "channelId": "UCCZDt7MuC3Hzs6IH4xODLBw",
-    "description": "",
+    "description": "Doing some basic recon with NahamSec on Twitch.",
     "tags": []
   },
   {
@@ -98,7 +98,7 @@
     "originalTitle": "Who, What, Where, When, Wordlist by @TomNomNom #NahamCon2020",
     "channel": "NahamSec",
     "channelId": "UCCZDt7MuC3Hzs6IH4xODLBw",
-    "description": "",
+    "description": "Wordlists are a big part of web hacking, and having the same lists as everybody else limits what you can find, so I did a talk about making your own.",
     "tags": []
   },
   {
@@ -108,8 +108,10 @@
     "originalTitle": "InfoSec Journeys #8 - TomNomNom",
     "channel": "InfoSec Real",
     "channelId": "UC2flvup7giBpysO-4wdynMg",
-    "description": "",
-    "tags": []
+    "description": "A chat with Colin Hardy and Ashley Pierre about how I got started in bug bounty, writing tools, and that sort of thing.",
+    "tags": [
+        "interview"
+    ]
   },
   {
     "id": "l8iXMgk2nnY",
@@ -118,7 +120,7 @@
     "originalTitle": "VIM tutorial: linux terminal tools for bug bounty pentest and redteams with @tomnomnom",
     "channel": "STÖK",
     "channelId": "UCQN2DsjnYH60SFBIA6IkNwg",
-    "description": "",
+    "description": "STÖK asked me to show him my tools and workflows, so I did. Unscripted, but highly subject to skillful editing.",
     "tags": []
   },
   {
@@ -128,8 +130,10 @@
     "originalTitle": "09/29/2019 - Live Bug Bounty Recon Session on Yahoo (meg, assetfinder, etc) w/ @Tomnomnom",
     "channel": "NahamSec",
     "channelId": "UCCZDt7MuC3Hzs6IH4xODLBw",
-    "description": "",
-    "tags": []
+    "description": "Demonstrating some tools and recon techniques live with NahamSec on Twitch.",
+    "tags": [
+        "stream"
+    ]
   },
   {
     "id": "p4em-0MwtIg",
@@ -138,8 +142,10 @@
     "originalTitle": "Hacker Heroes #3 - @TomNomNom (Interview)",
     "channel": "Intigriti",
     "channelId": "UCcBgAEHAW0ESGwfoLJYg_Tg",
-    "description": "",
-    "tags": []
+    "description": "An interview with PascalSec for Intigriti about when to write tools, the UK hacker scene and that kind of thing.",
+    "tags": [
+        "interview"
+    ]
   },
   {
     "id": "pDBOC6I3K8g",
@@ -148,7 +154,7 @@
     "originalTitle": "Big Numbers and the 1Hz CPU with Tom Hudson",
     "channel": "NewRedo",
     "channelId": "UCbUCJqsGVuiUsCloaU1s9mQ",
-    "description": "",
+    "description": "A lightning talk about just how incredibly fast computers are.",
     "tags": []
   },
   {
@@ -158,8 +164,10 @@
     "originalTitle": "TomNomNom Discord AMA",
     "channel": "Bishop Fox",
     "channelId": "UCE8o_Vx1nbvaGf_N0EsIgjg",
-    "description": "",
-    "tags": []
+    "description": "A fun Ask Me Anything session with my employer.",
+    "tags": [
+        "interview"
+    ]
   },
   {
     "id": "s9w0KutMorE",
@@ -168,7 +176,7 @@
     "originalTitle": "Bug Bounties With Bash - VirSecCon2020 Talk",
     "channel": "TomNomNom",
     "channelId": "UCyBZ1F8ZCJVKSIJPrLINFyA",
-    "description": "",
+    "description": "A bash scripting tutorial disguised as a talk about bug bounty.",
     "tags": []
   },
   {
@@ -178,7 +186,7 @@
     "originalTitle": "Networking Fundamentals",
     "channel": "TomNomNom",
     "channelId": "UCyBZ1F8ZCJVKSIJPrLINFyA",
-    "description": "",
+    "description": "Networking for people who already kind of know a bit about computers.",
     "tags": []
   },
   {
@@ -188,7 +196,7 @@
     "originalTitle": "NahamCon2021 - Using Chromedp to Hunt for Prototype Pollution - @TomNomNomDotCom",
     "channel": "NahamSec",
     "channelId": "UCCZDt7MuC3Hzs6IH4xODLBw",
-    "description": "",
+    "description": "Client-side bugs are kind of a pain to look for at scale, so I did a talk about how to do that.",
     "tags": []
   }
 ]
