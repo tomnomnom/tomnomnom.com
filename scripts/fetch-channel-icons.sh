@@ -5,7 +5,7 @@ ROOT_DIR=$(realpath "$(dirname $0)/..")
 mkdir -p $ROOT_DIR/static/channel-icons
 
 
-cat $ROOT_DIR/static/talks.json | jq -r '.[] | .channelId' |
+cat $ROOT_DIR/static/videos.json | jq -r '.[] | .channelId' |
 
 while read CHANNEL_ID; do
 	ICON_FILE="$ROOT_DIR/static/channel-icons/$CHANNEL_ID.jpg"

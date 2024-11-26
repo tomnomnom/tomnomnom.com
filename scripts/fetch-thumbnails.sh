@@ -5,7 +5,7 @@ ROOT_DIR=$(realpath "$(dirname $0)/..")
 mkdir -p $ROOT_DIR/static/thumbnails
 
 
-cat $ROOT_DIR/static/talks.json | jq -r '.[] | .id' |
+cat $ROOT_DIR/static/videos.json | jq -r '.[] | .id' |
 
 while read VIDEO_ID; do
 	THUMB_FILE="$ROOT_DIR/static/thumbnails/$VIDEO_ID.jpg"

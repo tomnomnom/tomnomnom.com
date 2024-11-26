@@ -6,25 +6,48 @@ body {
 	margin-right: auto;
 }
 
-h1 a {
-	text-decoration: none;
-	font-weight: bold;
+header {
+    display: grid;
+    grid-template-columns: 1fr fit-content(320px);
+    grid-template-rows: 1fr fit-content(20px);
+    grid-template-areas:
+        "title logo"
+        "nav   logo";
+    grid-gap: 1rem;
+
+    & h1 {
+        grid-area: title; 
+        & a {
+            text-decoration: none;
+            font-weight: bold;
+        }
+    }
+
+    & img {
+        grid-area: logo;
+    }
+
+    & nav {
+        grid-area: nav;
+
+        & ul {
+            list-style-type: none;
+            padding-left: 0;
+
+            & li {
+                display: inline-block;
+            }
+        }
+    }
 }
 
-nav ul {
-	list-style-type: none;
-	padding-left: 0;
 
-	& li {
-		display: inline-block;
-	}
-}
 
 p.signoff {
 	text-align: right;
 }
 
-div.talk {
+div.video {
     display: grid;
     grid-template-columns: 1fr fit-content(320px);
     grid-template-rows: 1fr fit-content(20px);
@@ -60,11 +83,26 @@ div.talk {
             font-size: 1.25rem;
             vertical-align: middle;
         }
+
+        & img.channel-icon {
+            width: 40px;
+            height: 40px;
+            border: 3px solid #BBB;
+            border-radius: 30px;
+            vertical-align: middle;
+        }
     }
 
     & .thumbnail {
         grid-area: thumbnail;
         text-align: right;
+
+        & img {
+            width: 320px;
+            height: 180px;
+            border: 3px solid #BBB;
+            border-radius: 10px;
+        }
     }
 
     & h2 {
@@ -73,19 +111,6 @@ div.talk {
         font-size: 1.5rem;
     }
 
-    & img.thumbnail {
-        width: 320px;
-        height: 180px;
-        border: 3px solid #BBB;
-        border-radius: 10px;
-    }
 
-    & img.channel-icon {
-        width: 40px;
-        height: 40px;
-        border: 3px solid #BBB;
-        border-radius: 30px;
-        vertical-align: middle;
-    }
 }
 

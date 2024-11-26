@@ -110,7 +110,7 @@
     "channelId": "UC2flvup7giBpysO-4wdynMg",
     "description": "A chat with Colin Hardy and Ashley Pierre about how I got started in bug bounty, writing tools, and that sort of thing.",
     "tags": [
-        "interview"
+      "interview"
     ]
   },
   {
@@ -132,7 +132,7 @@
     "channelId": "UCCZDt7MuC3Hzs6IH4xODLBw",
     "description": "Demonstrating some tools and recon techniques live with NahamSec on Twitch.",
     "tags": [
-        "stream"
+      "stream"
     ]
   },
   {
@@ -144,7 +144,7 @@
     "channelId": "UCcBgAEHAW0ESGwfoLJYg_Tg",
     "description": "An interview with PascalSec for Intigriti about when to write tools, the UK hacker scene and that kind of thing.",
     "tags": [
-        "interview"
+      "interview"
     ]
   },
   {
@@ -166,7 +166,7 @@
     "channelId": "UCE8o_Vx1nbvaGf_N0EsIgjg",
     "description": "A fun Ask Me Anything session with my employer.",
     "tags": [
-        "interview"
+      "interview"
     ]
   },
   {
@@ -197,6 +197,26 @@
     "channel": "NahamSec",
     "channelId": "UCCZDt7MuC3Hzs6IH4xODLBw",
     "description": "Client-side bugs are kind of a pain to look for at scale, so I did a talk about how to do that.",
+    "tags": []
+  },
+  {
+    "id": "U2fsUy0viLA",
+    "published": "2024-01-01T19:29:50Z",
+    "title": "The Find Command",
+    "originalTitle": "The Find Command",
+    "channel": "TomNomNom",
+    "channelId": "UCyBZ1F8ZCJVKSIJPrLINFyA",
+    "description": "The find command has a reputation for being difficult to use, so I made a short video about it.",
+    "tags": []
+  },
+  {
+    "id": "HK1wAV9x4-A",
+    "published": "2024-01-15T22:20:55Z",
+    "title": "Xargs Explained",
+    "originalTitle": "Xargs Explained",
+    "channel": "TomNomNom",
+    "channelId": "UCyBZ1F8ZCJVKSIJPrLINFyA",
+    "description": "I use xargs quite often, especially in conjunction with the find command, so I made a short video on how to use it.",
     "tags": []
   }
 ]

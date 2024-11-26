@@ -17,8 +17,8 @@ func main() {
 	var fn func() error
 
 	switch flag.Arg(0) {
-	case "update-talks":
-		fn = updateTalks
+	case "update-videos":
+		fn = updateVideos
 	default:
 		fn = serve
 	}

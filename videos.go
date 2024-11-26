@@ -14,12 +14,12 @@ import (
 	"time"
 )
 
-const talksFile = "static/talks.json"
+const videosFile = "static/videos.json"
 
-//go:embed static/talks.json
-var talksJSON []byte
+//go:embed static/videos.json
+var videosJSON []byte
 
-type talk struct {
+type video struct {
 	ID            string   `json:"id"`
 	Published     string   `json:"published"`
 	Title         string   `json:"title"`
@@ -32,7 +32,7 @@ type talk struct {
 	Date string `json:"-"`
 }
 
-func (t talk) getInfoURL(youtubeKey string) string {
+func (t video) getInfoURL(youtubeKey string) string {
 	return fmt.Sprintf(
 		"https://www.googleapis.com/youtube/v3/videos?part=snippet&id=%s&key=%s",
 		t.ID,
@@ -40,7 +40,7 @@ func (t talk) getInfoURL(youtubeKey string) string {
 	)
 }
 
-func (t *talk) update(youtubeKey string) error {
+func (t *video) update(youtubeKey string) error {
 	if t.Published != "" {
 		//return nil
 	}
@@ -96,39 +96,39 @@ func (t *talk) update(youtubeKey string) error {
 	return nil
 }
 
-func getTalks() ([]*talk, error) {
+func getVideos() ([]*video, error) {
 
-	var talks []*talk
-	err := json.Unmarshal(talksJSON, &talks)
+	var videos []*video
+	err := json.Unmarshal(videosJSON, &videos)
 
 	if err != nil {
-		return talks, err
+		return videos, err
 	}
 
-	slices.SortFunc(talks, func(a, b *talk) int {
+	slices.SortFunc(videos, func(a, b *video) int {
 		return cmp.Compare(b.Published, a.Published)
 	})
 
-	for _, talk := range talks {
-		t, err := time.Parse(time.RFC3339, talk.Published)
+	for _, video := range videos {
+		t, err := time.Parse(time.RFC3339, video.Published)
 		if err != nil {
-			return talks, err
+			return videos, err
 		}
 
-		talk.Date = t.Format("January 2, 2006")
+		video.Date = t.Format("January 2, 2006")
 	}
 
-	return talks, err
+	return videos, err
 }
 
-func updateTalks() error {
+func updateVideos() error {
 
 	youtubeKey := os.Getenv("YOUTUBE_KEY")
 	if youtubeKey == "" {
 		return errors.New("YOUTUBE_KEY environment variable must be set")
 	}
 
-	f, err := os.OpenFile(talksFile, os.O_RDWR, 0666)
+	f, err := os.OpenFile(videosFile, os.O_RDWR, 0666)
 	if err != nil {
 		return err
 	}
@@ -136,20 +136,20 @@ func updateTalks() error {
 
 	dec := json.NewDecoder(f)
 
-	var talks []*talk
-	err = dec.Decode(&talks)
+	var videos []*video
+	err = dec.Decode(&videos)
 	if err != nil {
 		return err
 	}
 
-	for _, talk := range talks {
-		err = talk.update(youtubeKey)
+	for _, video := range videos {
+		err = video.update(youtubeKey)
 		if err != nil {
 			return err
 		}
 	}
 
-	j, err := json.MarshalIndent(talks, "", "  ")
+	j, err := json.MarshalIndent(videos, "", "  ")
 	if err != nil {
 		return err
 	}
@@ -157,7 +157,7 @@ func updateTalks() error {
 	fmt.Printf("%s\n\n", j)
 
 	sc := bufio.NewScanner(os.Stdin)
-	fmt.Println("Write this to the talks file? y/n")
+	fmt.Println("Write this to the videos file? y/n")
 	sc.Scan()
 	answer := strings.TrimSpace(sc.Text())
 

@@ -14,7 +14,7 @@ func serve() error {
 		"templates/header.tmpl",
 		"templates/footer.tmpl",
 		"templates/index.tmpl",
-		"templates/talks.tmpl",
+		"templates/videos.tmpl",
 		"templates/sheep.tmpl",
 	)
 	r.Static("/static", "./static")
@@ -27,8 +27,8 @@ func serve() error {
 		})
 	})
 
-	r.GET("/talks.json", func(c *gin.Context) {
-		talks, err := getTalks()
+	r.GET("/videos.json", func(c *gin.Context) {
+		videos, err := getVideos()
 		if err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{
 				"error": err.Error(),
@@ -36,11 +36,11 @@ func serve() error {
 			return
 		}
 
-		c.JSON(http.StatusOK, talks)
+		c.JSON(http.StatusOK, videos)
 	})
 
-	r.GET("/talks", func(c *gin.Context) {
-		talks, err := getTalks()
+	r.GET("/videos", func(c *gin.Context) {
+		videos, err := getVideos()
 		if err != nil {
 			// TODO: HTML error pages
 			c.JSON(http.StatusInternalServerError, gin.H{
@@ -49,8 +49,8 @@ func serve() error {
 			return
 		}
 
-		c.HTML(http.StatusOK, "talks.tmpl", gin.H{
-			"talks": talks,
+		c.HTML(http.StatusOK, "videos.tmpl", gin.H{
+			"videos": videos,
 		})
 	})
 
