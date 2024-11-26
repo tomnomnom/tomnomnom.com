@@ -1,3 +1,7 @@
+html {
+    background-color: #EEE;
+}
+
 body {
 	font-size: 20px;
 	font-family: sans-serif;
@@ -6,36 +10,33 @@ body {
 	margin-right: auto;
 }
 
+h1, h2, h3 {
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
 header {
-    display: grid;
-    grid-template-columns: 1fr fit-content(320px);
-    grid-template-rows: 1fr fit-content(20px);
-    grid-template-areas:
-        "title logo"
-        "nav   logo";
-    grid-gap: 1rem;
+    text-align: center;
+    margin-bottom: 2rem;
 
     & h1 {
-        grid-area: title; 
+        font-size: 3rem;
         & a {
             text-decoration: none;
             font-weight: bold;
         }
     }
 
-    & img {
-        grid-area: logo;
-    }
-
     & nav {
-        grid-area: nav;
 
         & ul {
             list-style-type: none;
             padding-left: 0;
+            margin: 0;
 
             & li {
                 display: inline-block;
+                margin-right: 0.5rem;
             }
         }
     }
@@ -47,6 +48,15 @@ p.signoff {
 	text-align: right;
 }
 
+.container {
+    background-color: #DDD;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 3px solid #BBB;
+}
+
 div.video {
     display: grid;
     grid-template-columns: 1fr fit-content(320px);
@@ -56,13 +66,6 @@ div.video {
         "footer thumbnail";
     grid-gap: 1rem;
 
-    background-color: #DDD;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    padding: 1.5rem;
-    border-radius: 15px;
-    border: 3px solid #BBB;
-    
     & a {
         text-decoration: none;
         font-weight: bold;
@@ -110,7 +113,6 @@ div.video {
         margin-bottom: 0;
         font-size: 1.5rem;
     }
-
 
 }
 
