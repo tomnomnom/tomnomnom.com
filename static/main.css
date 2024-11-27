@@ -8,6 +8,18 @@ body {
 	max-width: 60rem;
 	margin-left: auto;
 	margin-right: auto;
+    line-height: 1.6;
+}
+
+hr {
+    border: 0;
+    height: 3px;
+    width: 33%;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    background: #BBB;
 }
 
 h1, h2, h3 {
@@ -18,11 +30,18 @@ h1, h2, h3 {
 pre {
 	white-space: pre-wrap;
 	word-break: break-word;
-	margin-left: 2rem;
-	padding-left: 1rem;
-	padding-top: 1rem;
-	padding-bottom: 1rem;
-	border-left: 3px solid #BBB; 
+    margin: 0.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+	padding: 1rem;
+    background-color: #CCC; 
+    border-radius: 5px;
+}
+
+code {
+    background-color: #CCC; 
+    border-radius: 3px;
+    padding: 2px;
 }
 
 ul {
@@ -39,6 +58,7 @@ ul {
 header {
     text-align: center;
     margin-bottom: 2rem;
+    line-height: 1;
 
     & h1 {
         font-size: 3rem;

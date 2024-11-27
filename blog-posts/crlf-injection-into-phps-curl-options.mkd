@@ -61,8 +61,9 @@ curl_close($ch);
 
 This code was calling the getPublicData method on an internal JSON API using the cURL library. That API needed to know about the user's trial groups so it could change its behaviour accordingly, and so the trial groups were being passed to the API in an X-Trial-Groups header.
 
-The issue here is that when setting the CURLOPT\_HTTPHEADER, the values are not checked for carriage return or line feed characters. Because the getTrialGroups() function returns user-controllable data, it's possible to inject arbitrary headers into the API request.
+The issue here is that when setting the `CURLOPT_HTTPHEADER`, the values are not checked for carriage return or line feed characters. Because the getTrialGroups() function returns user-controllable data, it's possible to inject arbitrary headers into the API request.
 
+---
 
 ## Demo Time
 To make things easier to follow, I'm going to run server.php locally using PHP's built-in web server:
@@ -132,6 +133,7 @@ tom@slim:~▶ curl -s localhost:1234 -b 'trialGroups=A1,B2%0d%0aX-Injected:%20tr
 
 PHP automatically decodes URL-encoded sequences (e.g. %0d, %0a) in cookie values, so we can use a URL-encoded carriage return character (%0d) and line feed character (%0a) in the cookie value we send. HTTP headers are separated by CRLF sequences, so when the PHP cURL library writes the request headers the X-Injected: true part of our payload is treated as a separate header. Magic!
 
+---
 
 ## HTTP Requests
 
@@ -247,9 +249,10 @@ Via: 1.1 vegur
 
 We kept the Content-Length header the same and said we'd send 7 bytes, and added some more data to the request body, but the server only read the first 7 bytes. And that is the trick we can use to actually craft an exploit.
 
+---
 
 ## The Exploit
-It turns out that when you set the CURLOPT\_HTTPHEADER option, not only can you inject headers by using a single CRLF sequence, you can inject POST data using a double CRLF sequence. So here's the plan:
+It turns out that when you set the `CURLOPT_HTTPHEADER` option, not only can you inject headers by using a single CRLF sequence, you can inject POST data using a double CRLF sequence. So here's the plan:
 
 1. Craft our own JSON POST data that calls some method other than getPublicData; let's say getPrivateData
 2. Get the length of that data in bytes
@@ -301,15 +304,16 @@ Great success! We set the x-Trial-Groups header to ignore, injected a Content-Le
 
 This is the kind of bug that you're unlikely to find doing black-box testing, but I think it's still worth writing about because there is so much open source code in use these days, and it's always good to educate people who write code about attack vectors they might not be aware of too.
 
+---
 
 ## Other Vectors
-Since finding this bug I've tried to keep an eye out for similar situations. In my research I've found that CURLOPT\_HTTPHEADER isn't the only cURL option that's vulnerable to the same attack. The following options (and possibly others!) implicitly set headers on the request, and are vulnerable:
+Since finding this bug I've tried to keep an eye out for similar situations. In my research I've found that `CURLOPT_HTTPHEADER` isn't the only cURL option that's vulnerable to the same attack. The following options (and possibly others!) implicitly set headers on the request, and are vulnerable:
 
-* CURLOPT\_HEADER
-* CURLOPT\_COOKIE
-* CURLOPT\_RANGE
-* CURLOPT\_REFERER
-* CURLOPT\_USERAGENT
-* CURLOPT\_PROXYHEADER
+* `CURLOPT_HEADER`
+* `CURLOPT_COOKIE`
+* `CURLOPT_RANGE`
+* `CURLOPT_REFERER`
+* `CURLOPT_USERAGENT`
+* `CURLOPT_PROXYHEADER`
 
 Please do let me know if you find more :)
