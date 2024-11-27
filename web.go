@@ -16,6 +16,9 @@ func serve() error {
 		"templates/index.tmpl",
 		"templates/videos.tmpl",
 		"templates/sheep.tmpl",
+		"templates/links.tmpl",
+		"templates/blog-posts.tmpl",
+		"templates/blog-post.tmpl",
 	)
 	r.Static("/static", "./static")
 	r.StaticFile("/favicon.ico", "./static/favicons/favicon.ico")
@@ -23,7 +26,8 @@ func serve() error {
 
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.tmpl", gin.H{
-			"title": "Main website",
+			// TODO: page <title>
+			"title": "TomNomNom.com",
 		})
 	})
 
@@ -56,6 +60,34 @@ func serve() error {
 
 	r.GET("/sheep", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "sheep.tmpl", gin.H{})
+	})
+
+	r.GET("/links", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "links.tmpl", gin.H{})
+	})
+
+	blogPosts, err := getBlogPosts()
+	if err != nil {
+		return err
+	}
+
+	r.GET("/blog-posts", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "blog-posts.tmpl", gin.H{
+			"posts": blogPosts,
+		})
+	})
+
+	r.GET("/blog-posts/:post_id", func(c *gin.Context) {
+
+		post := blogPosts.find(c.Param("post_id"))
+		if post == nil {
+			c.JSON(http.StatusNotFound, gin.H{})
+			return
+		}
+
+		c.HTML(http.StatusOK, "blog-post.tmpl", gin.H{
+			"content": post.Content,
+		})
 	})
 
 	return r.Run(":8080")

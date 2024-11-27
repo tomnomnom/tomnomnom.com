@@ -1,0 +1,10 @@
+{{template "header"}}
+
+{{range .posts}}
+	<article class=container>
+		<a href="/blog-posts/{{.ID}}">{{.Title}}</a>
+	</article>
+{{end}}
+
+{{template "footer"}}
+
