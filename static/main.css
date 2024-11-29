@@ -99,7 +99,6 @@ p.signoff {
     margin-bottom: 1rem;
     padding: 1.5rem;
     border-radius: 15px;
-    border: 3px solid #BBB;
 }
 
 div.video {
@@ -135,7 +134,6 @@ div.video {
         & img.channel-icon {
             width: 40px;
             height: 40px;
-            border: 3px solid #BBB;
             border-radius: 30px;
             vertical-align: middle;
         }
@@ -148,7 +146,6 @@ div.video {
         & img {
             width: 320px;
             height: 180px;
-            border: 3px solid #BBB;
             border-radius: 10px;
         }
     }
@@ -161,3 +158,8 @@ div.video {
 
 }
 
+
+.picture {
+    text-align: center;
+    margin: 2rem;
+}

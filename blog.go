@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"embed"
 	"errors"
 	"html/template"
@@ -8,8 +9,11 @@ import (
 	"strings"
 
 	"github.com/gomarkdown/markdown"
-	"github.com/gomarkdown/markdown/html"
+	mdhtml "github.com/gomarkdown/markdown/html"
 	"github.com/gomarkdown/markdown/parser"
+
+	"github.com/ericchiang/css"
+	"golang.org/x/net/html"
 )
 
 //go:embed blog-posts
@@ -75,10 +79,15 @@ func parseBlogPost(filename string) (*blogPost, error) {
 		raw = parseMarkdown(raw)
 	}
 
+	title, err := extractTitle(raw)
+	if err != nil {
+		return nil, err
+	}
+
+	// TODO: parse metadata from... somewhere.
 	return &blogPost{
-		ID: id,
-		// TODO: parse the <h1> out of the page; also metadata?
-		Title:   id,
+		ID:      id,
+		Title:   title,
 		Content: template.HTML(raw),
 	}, nil
 }
@@ -90,9 +99,28 @@ func parseMarkdown(md []byte) []byte {
 	doc := p.Parse(md)
 
 	// create HTML renderer with extensions
-	htmlFlags := html.CommonFlags | html.HrefTargetBlank
-	opts := html.RendererOptions{Flags: htmlFlags}
-	renderer := html.NewRenderer(opts)
+	htmlFlags := mdhtml.CommonFlags | mdhtml.HrefTargetBlank
+	opts := mdhtml.RendererOptions{Flags: htmlFlags}
+	renderer := mdhtml.NewRenderer(opts)
 
 	return markdown.Render(doc, renderer)
+}
+
+func extractTitle(src []byte) (string, error) {
+	sel, err := css.Parse("h1:first-child")
+	if err != nil {
+		return "", err
+	}
+
+	doc, err := html.Parse(bytes.NewReader(src))
+	if err != nil {
+		return "", err
+	}
+
+	elements := sel.Select(doc)
+	if len(elements) == 0 {
+		return "", errors.New("no title found")
+	}
+
+	return elements[0].FirstChild.Data, nil
 }

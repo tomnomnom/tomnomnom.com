@@ -3,8 +3,10 @@ module github.com/tomnomnom/tomnomnom.com
 go 1.23.2
 
 require (
+	github.com/ericchiang/css v1.4.0
 	github.com/gin-gonic/gin v1.10.0
 	github.com/gomarkdown/markdown v0.0.0-20241105142532-d03b89096d81
+	golang.org/x/net v0.25.0
 )
 
 require (
@@ -29,7 +31,6 @@ require (
 	github.com/ugorji/go/codec v1.2.12 // indirect
 	golang.org/x/arch v0.8.0 // indirect
 	golang.org/x/crypto v0.23.0 // indirect
-	golang.org/x/net v0.25.0 // indirect
 	golang.org/x/sys v0.20.0 // indirect
 	golang.org/x/text v0.15.0 // indirect
 	google.golang.org/protobuf v1.34.1 // indirect

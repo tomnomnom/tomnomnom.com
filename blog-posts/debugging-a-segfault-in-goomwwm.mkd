@@ -1,0 +1,208 @@
+# Debugging a Segfault in Goomwwm
+
+I've been using [goomwwm](https://github.com/seanpringle/goomwwm) as my window manager
+for nearly two years now and it's been great. If you want a *very* lightweight, keyboard-driven,
+floating window manager with great tiling support then I highly recommend it.
+
+All was good in goom land until an update to Google Chrome caused a strange problem; goomwwm would crash
+whenever I closed Chrome using `Mod-Escape` (goomwwm's default shortcut to close a window). To be
+honest, I ignored the problem for a few months. I knew goomwwm was written in C, and I'm not a C programmer.
+I also don't actually close my browser all that often, but everyone has their limits: after the 30th or so crash I decided I was
+going to try and fix it.
+
+---
+
+## The Logs
+
+The first step in debugging any problem is to recreate the problem reliably; 'luckily' for me that part 
+was pretty easy, all I had to do was close Chrome and I'd be dumped back at the Ubuntu login screen.
+That problem already solved, I had a look in the logs to find out what was going on.
+
+    tom@uvm:~▶ grep goomwwm /var/log/syslog 
+    May 27 14:55:12 uvm kernel: [ 1029.049694] goomwwm[16563]: segfault at 8
+    ▹ ip 000000000040359a sp 00007fffd3b9dfa8 error 4 in goomwwm[400000+17000]
+
+Ouch. That's a pretty scary error as far as I'm concerned; some big hex numbers and some other stuff
+I didn't really understand. After a Google search for '*segfault ip sp error*' I ended up at 
+[this Stack Overflow answer](http://stackoverflow.com/a/2549593). Thanks to that 
+[kind internet stranger](https://self-evident.org/) I then knew:
+
+* `ip 000000000040359a` is the 'Instruction Pointer'; i.e. the address of the instruction that was being executed when the segfault happened.
+* `sp 00007fffd3b9dfa8` is the 'stack pointer'; i.e. the address at the top of the [stack](https://en.wikipedia.org/wiki/Stack-based_memory_allocation).
+
+Following the advice in the Stack Overflow answer, I ran `addr2line` on the goomwwm binary, using the Instruction Pointer
+address from the log:
+
+    tom@uvm:~▶ addr2line -e /usr/local/bin/goomwwm 000000000040359a
+    ??:?
+
+That... Wasn't so useful. Something was amiss, so I checked the man page for `addr2line`:
+
+    tom@uvm:~▶ man addr2line
+
+    ...
+
+    addr2line translates addresses into file names and line numbers.
+    Given an address in an executable or an offset in a section of a
+    relocatable object, it uses the debugging information to figure
+    out which file name and line number are associated with it.
+
+    ...
+
+The man page mentions that it uses debugging information to figure things out, which made sense. I assumed
+that the goomwwm binary was missing such debugging information, because it wouldn't make much sense to use
+a debug build of a binary for day-to-day use.
+
+---
+
+## A Debug Build
+
+I had a look at [the Makefile](https://github.com/seanpringle/goomwwm/blob/master/Makefile#L7) for goomwwm
+and found the author had helpfully included a 'debug' target. I made a debug build and replaced my
+existing binary with it.
+
+    tom@uvm:~/src/seanpringle/goomwwm▶ make debug
+    cc -o goomwwm-debug goomwwm.c -Wall -Os -g -DDEBUG `pkg-config --cflags --libs x11 xinerama xft`
+    tom@uvm:~/src/seanpringle/goomwwm▶ sudo rm /usr/local/bin/goomwwm
+    tom@uvm:~/src/seanpringle/goomwwm▶ sudo mv goomwwm-debug /usr/local/bin/goomwwm
+
+I then killed my goomwwm session, logged in again and launched Chrome. To my delight, when I closed Chrome
+goomwwm crashed just like it did with the non-debug build. After logging in again for what seemed like
+the 100th time I re-checked the log to see what I had.
+
+    tom@uvm:~▶ grep goomwwm /var/log/syslog 
+    May 27 14:55:12 uvm kernel: [ 1029.049694] goomwwm[16563]: segfault at 8
+    ▹ ip 000000000040359a sp 00007fffd3b9dfa8 error 4 in goomwwm[400000+17000]
+    May 27 15:59:42 uvm kernel: [ 4898.516610] goomwwm[19248]: segfault at 8
+    ▹ ip 0000000000403868 sp 00007fff3bceb6b8 error 4 in goomwwm[400000+18000]
+
+Fantastic! The log looked pretty much the same as before, but with a different Instruction Pointer this time.
+I tried running `addr2line` again with the new binary and address:
+
+    tom@uvm:~▶ addr2line -e /usr/local/bin/goomwwm 0000000000403868
+    /home/tom/src/seanpringle/goomwwm/box.c:67
+
+Success! I opened [the offending file](https://github.com/seanpringle/goomwwm/blob/master/box.c#L67) and found a
+function called `box_hide`.
+
+    void box_hide(box *b) 
+    {
+        XUnmapWindow(display, b->window);
+    }
+
+I was finally getting somewhere.
+
+---
+
+## Grep Driven Development
+
+As I mentioned before, I'm not a C programmer; but I could still tell a few things from looking at the `box_hide` function:
+
+* It accepts a pointer to a `box`
+* A `box` has a `window`
+* There isn't any conditionals or logic, just a single function call
+
+It seemed like a likely candidate - windows get hidden when you close them after all - but there's not really
+much room for logic errors in a function that does nothing but call another function. I made the assumption that the
+problem existed somewhere `box_hide` was being called, rather than in `box_hide` itself.
+
+In true [GDD](http://stevenharman.net/bag-of-methods-module-and-grep-driven-development) style, I had a look for
+calls to `box_hide` in the rest of the code:
+
+    tom@uvm:~/src/seanpringle/goomwwm▶ grep -nri box_hide *
+    box.c:65:void box_hide(box *b)
+    client.c:358:   box_hide(c->cache->frame);
+    client.c:1173:      if (c->cache->frame) box_hide(c->cache->frame);
+    client.c:1871:  if (c->decorate) box_hide(c->cache->frame);
+    handle.c:821:           box_hide(c->cache->frame);
+    proto.h:5:void box_hide(box *b);
+    proto.h:148:void textbox_hide(textbox *tb);
+    textbox.c:114:void textbox_hide(textbox *tb)
+
+I found the definition of the function in `box.c`, three calls in `client.c`, one call in `handle.c`,
+a definition in `proto.h`, and two references to a different function that just happens to end in 'box_hide'.
+Discarding the definitions and `textbox_hide` calls left me with four possible places too look; thankfully not beyond
+the realms of trial and error.
+
+---
+
+## A Binary Search
+
+To make sure I was on the right track I commented out all four calls to `box_hide`,
+rebuilt and replaced the `goomwwm` binary like I had done for the debug build,
+and then restarted.
+
+The problem was gone! Kind of. With the calls to `box_hide` commented out I couldn't close any windows.
+It was time for a binary search to narrow things down. I uncommented two of the four calls, rebuilt and
+restarted; no change - no crashes, but no windows closing either. Two down, two to go.
+
+After uncommenting one of the two remaining calls, rebuilding, restarting and logging in again I had found
+the problematic call: `client_close` in `client.c`.
+
+    // close a window politely if possible, else kill it
+    void client_close(client *c)
+    {
+        // prevent frame flash
+        c->active = 0; 
+        client_redecorate(c);
+        box_hide(c->cache->frame);
+        
+        // ...    
+    }
+
+This call was a bit different to the others. For comparison, here's the call in `client_review_border`:
+
+    // set border width approriate to position and size
+    void client_review_border(client *c)
+    {
+        // ...
+
+        if (client_has_state(c, netatoms[_NET_WM_STATE_FULLSCREEN]))
+        {
+            if (c->cache->frame) box_hide(c->cache->frame);
+            memset(extents, 0, sizeof(extents));
+        }
+
+        // ...
+    }
+
+There's a check there that `client_close` is missing; `c->cache->frame` is checked before `box_hide` is
+called. Bingo!
+
+I added a matching check to `client_close`:
+
+    // close a window politely if possible, else kill it
+    void client_close(client *c)
+    {
+        // prevent frame flash
+        c->active = 0;
+        client_redecorate(c);
+        if (c->cache->frame) box_hide(c->cache->frame);
+        // ^^^ The added check
+        
+        // ...
+    }
+
+Rebuild, restart, **success!** No more crashes, and windows closed just fine - Chrome included.
+
+I get a very special feeling from fixing something: a mix of relief, satisfaction and big-headedness - and at last I felt it.
+With one last thing to do, I forked the repo on GitHub and issued a [pull request](https://github.com/seanpringle/goomwwm/pull/30).
+What a wonderful Open Source world we live in.
+
+If you ask me, not knowing how to do something is a rubbish excuse for not doing it.
+
+---
+
+## Addendum
+
+I've [been asked](https://twitter.com/craiga/status/603947520134348800) why I added a check to `client_close` instead
+of just adding a check to `box_hide` itself. The honest answer is that I probably should have done that, but I was instinctively
+mimicking what the original author had done elsewhere.
+
+---
+
+## Thanks
+I'd like to thank [Sean Pringle](http://aerosuidae.net/) for writing such an otherwise rock-solid window manager, and merging my
+pull request so quickly.
+
+If you'd like to get in touch you can [mention me on Twitter](https://twitter.com/TomNomNom).
