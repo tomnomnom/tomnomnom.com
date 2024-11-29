@@ -1,6 +1,62 @@
-html {
-    background-color: #EEE;
+
+@media (prefers-color-scheme: light) {
+    html {
+        background-color: #EEE;
+        color: #050505;
+    }
+
+    h1 a {
+        color: #050505;
+    }
+
+    pre, code {
+        background-color: #CCC;
+    }
+
+    .container {
+        background-color: #DDD;
+    }
+
+    .video .footer a {
+        color: #666;
+    }
+
+    hr {
+        background-color: #BBB;
+    }
 }
+
+@media (prefers-color-scheme: dark) {
+    html {
+        background-color: #111;
+        color: #F5F5F5;
+    }
+
+    a {
+        color: #FBBF24;
+    }
+    
+    h1 a {
+        color: #F5F5F5;
+    }
+
+    pre, code {
+        background-color: #222;
+    }
+
+    .container {
+        background-color: #333;
+    }
+
+    .video .footer a {
+        color: #AAA;
+    }
+
+    hr {
+        background-color: #999;
+    }
+}
+
 
 body {
 	font-size: 20px;
@@ -19,7 +75,6 @@ hr {
     margin-bottom: 3rem;
     margin-left: auto;
     margin-right: auto;
-    background: #BBB;
 }
 
 h1, h2, h3 {
@@ -34,12 +89,10 @@ pre {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
 	padding: 1rem;
-    background-color: #CCC; 
     border-radius: 5px;
 }
 
 code {
-    background-color: #CCC; 
     border-radius: 3px;
     padding: 2px;
 }
@@ -70,6 +123,8 @@ header {
 
     & nav {
 
+        margin-top: 1rem;
+
         & ul {
             list-style: none;
             padding-left: 0;
@@ -94,7 +149,6 @@ p.signoff {
 }
 
 .container {
-    background-color: #DDD;
     margin-top: 1rem;
     margin-bottom: 1rem;
     padding: 1.5rem;
@@ -122,10 +176,6 @@ div.video {
     & .footer {
         grid-area: footer;
 
-        & a {
-            color: #666;
-        }
-
         & span {
             font-size: 1.25rem;
             vertical-align: middle;
@@ -135,6 +185,7 @@ div.video {
             width: 40px;
             height: 40px;
             border-radius: 30px;
+            margin-right: 0.25rem;
             vertical-align: middle;
         }
     }

@@ -10,8 +10,6 @@ honest, I ignored the problem for a few months. I knew goomwwm was written in C,
 I also don't actually close my browser all that often, but everyone has their limits: after the 30th or so crash I decided I was
 going to try and fix it.
 
----
-
 ## The Logs
 
 The first step in debugging any problem is to recreate the problem reliably; 'luckily' for me that part 
