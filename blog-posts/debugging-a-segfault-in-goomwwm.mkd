@@ -24,8 +24,8 @@ That problem already solved, I had a look in the logs to find out what was going
 
 Ouch. That's a pretty scary error as far as I'm concerned; some big hex numbers and some other stuff
 I didn't really understand. After a Google search for '*segfault ip sp error*' I ended up at 
-[this Stack Overflow answer](http://stackoverflow.com/a/2549593). Thanks to that 
-[kind internet stranger](https://self-evident.org/) I then knew:
+[this Stack Overflow answer](https://stackoverflow.com/a/2549593). Thanks to that 
+kind internet stranger I then knew:
 
 * `ip 000000000040359a` is the 'Instruction Pointer'; i.e. the address of the instruction that was being executed when the segfault happened.
 * `sp 00007fffd3b9dfa8` is the 'stack pointer'; i.e. the address at the top of the [stack](https://en.wikipedia.org/wiki/Stack-based_memory_allocation).
@@ -195,14 +195,13 @@ If you ask me, not knowing how to do something is a rubbish excuse for not doing
 
 ## Addendum
 
-I've [been asked](https://twitter.com/craiga/status/603947520134348800) why I added a check to `client_close` instead
+I've been asked why I added a check to `client_close` instead
 of just adding a check to `box_hide` itself. The honest answer is that I probably should have done that, but I was instinctively
 mimicking what the original author had done elsewhere.
 
 ---
 
 ## Thanks
-I'd like to thank [Sean Pringle](http://aerosuidae.net/) for writing such an otherwise rock-solid window manager, and merging my
+I'd like to thank [Sean Pringle](https://github.com/seanpringle) for writing such an otherwise rock-solid window manager, and merging my
 pull request so quickly.
 
-If you'd like to get in touch you can [mention me on Twitter](https://twitter.com/TomNomNom).

@@ -21,7 +21,7 @@ function getTrialGroups(){
 }
 ```
 
-The system I was looking at had a concept of 'Trial Groups'. Every user session had a set of groups associated with it, stored as a comma-separated list in a cookie. The idea was that when new features were launched they could be enabled for a small percentage of customers at first to de-risk the feature launch, or allow comparison of different variations on a feature (an approach known as A/B Testing). The getTrialGroups() function simply read the cookie value, split the list apart and returned an array of trial groups for that user.
+The system I was looking at had a concept of 'Trial Groups'. Every user session had a set of groups associated with it, stored as a comma-separated list in a cookie. The idea was that when new features were launched they could be enabled for a small percentage of customers at first to de-risk the feature launch, or allow comparison of different variations on a feature (an approach known as [A/B Testing](https://en.wikipedia.org/wiki/A/B_testing)). The `getTrialGroups()` function simply read the cookie value, split the list apart and returned an array of trial groups for that user.
 
 The lack of whitelisting in this function immediately caught my attention. I grepped the rest of the codebase to find where the function was called so I could see if there was any unsafe use of its return value.
 
@@ -59,14 +59,14 @@ echo curl_exec($ch);
 curl_close($ch);
 ```
 
-This code was calling the getPublicData method on an internal JSON API using the cURL library. That API needed to know about the user's trial groups so it could change its behaviour accordingly, and so the trial groups were being passed to the API in an X-Trial-Groups header.
+This code was calling the `getPublicData` method on an internal JSON API using the cURL library. That API needed to know about the user's trial groups so it could change its behaviour accordingly, and so the trial groups were being passed to the API in an `X-Trial-Groups` header.
 
-The issue here is that when setting the `CURLOPT_HTTPHEADER`, the values are not checked for carriage return or line feed characters. Because the getTrialGroups() function returns user-controllable data, it's possible to inject arbitrary headers into the API request.
+The issue here is that when setting the `CURLOPT_HTTPHEADER`, the values are not checked for carriage return or line feed characters. Because the `getTrialGroups()` function returns user-controllable data, it's possible to inject arbitrary headers into the API request.
 
 ---
 
 ## Demo Time
-To make things easier to follow, I'm going to run server.php locally using PHP's built-in web server:
+To make things easier to follow, I'm going to run `server.php` locally using PHP's built-in web server:
 
 ```
 tom@slim:~/tmp/crlf▶ php -S localhost:1234 server.php
@@ -76,7 +76,7 @@ Document root is /home/tom/tmp/crlf
 Press Ctrl-C to quit.
 ```
 
-Using the cURL command line utility we can send an example request that includes a trialGroups cookie:
+Using the cURL command line utility we can send an example request that includes a `trialGroups` cookie:
 
 ```
 tom@slim:~▶ curl -s localhost:1234 -b 'trialGroups=A1,B2' 
@@ -102,9 +102,9 @@ tom@slim:~▶ curl -s localhost:1234 -b 'trialGroups=A1,B2'
 }
 ```
 
-In place of the internal API endpoint I'm using http://httpbin.org/post, which returns a JSON document describing the POST request that was sent, including any POST data and headers that were in the request.
+In place of the internal API endpoint I'm using `http://httpbin.org/post`, which returns a JSON document describing the POST request that was sent, including any POST data and headers that were in the request.
 
-The important thing to note about the response is that the X-Trial-Groups header sent to httpbin.org contains the A1,B2 string that was in the trialGroups cookie. Let's try some CRLF (Carriage Return Line Feed) injection then:
+The important thing to note about the response is that the `X-Trial-Groups` header sent to httpbin.org contains the `A1,B2` string that was in the `trialGroups` cookie. Let's try some CRLF (Carriage Return Line Feed) injection then:
 
 ```
 tom@slim:~▶ curl -s localhost:1234 -b 'trialGroups=A1,B2%0d%0aX-Injected:%20true' 
@@ -131,15 +131,15 @@ tom@slim:~▶ curl -s localhost:1234 -b 'trialGroups=A1,B2%0d%0aX-Injected:%20tr
 }
 ```
 
-PHP automatically decodes URL-encoded sequences (e.g. %0d, %0a) in cookie values, so we can use a URL-encoded carriage return character (%0d) and line feed character (%0a) in the cookie value we send. HTTP headers are separated by CRLF sequences, so when the PHP cURL library writes the request headers the X-Injected: true part of our payload is treated as a separate header. Magic!
+PHP automatically decodes URL-encoded sequences (e.g. `%0d`, `%0a`) in cookie values, so we can use a URL-encoded carriage return character (`%0d`) and line feed character (`%0a`) in the cookie value we send. HTTP headers are separated by CRLF sequences, so when the PHP cURL library writes the request headers the `X-Injected: true` part of our payload is treated as a separate header. Magic!
 
 ---
 
 ## HTTP Requests
 
-What can you really do by injecting headers into the request? Well, truth be told: not very much in this case. If we dig a little deeper into the structure of an HTTP request you'll see that we can do more than just inject headers though; we can inject POST data too!
+What can you really do by injecting headers into the request? Well, truth be told: not very much in this case. If we dig a little deeper into the structure of an HTTP request you'll see that we can do more than just inject headers though; we can inject `POST` data too!
 
-To understand how the exploit will work, you need to know a little bit about HTTP requests. Just about the most basic HTTP POST request you can do looks like this:
+To understand how the exploit will work, you need to know a little bit about HTTP requests. Just about the most basic HTTP `POST` request you can do looks like this:
 
 ```
 POST /post HTTP/1.1
@@ -155,13 +155,13 @@ Let's break it down line-by-line.
 POST /post HTTP/1.1
 ```
 
-The first line says to use the POST method to send a request to the /post endpoint, using HTTP version 1.1.
+The first line says to use the `POST` method to send a request to the `/post` endpoint, using HTTP version `1.1`.
 
 ```
 Host: httpbin.org
 ```
 
-This header tells the remote server that we are requesting a page on httpbin.org. This may seem redundant, but when you connect to an HTTP server you're connecting to the IP address for the server, not the domain name. If you don't include a Host header in your request the server has no way to know what domain you typed into your browser's address bar.
+This header tells the remote server that we are requesting a page on `httpbin.org`. This may seem redundant, but when you connect to an HTTP server you're connecting to the IP address for the server, not the domain name. If you don't include a `Host` header in your request the server has no way to know what domain you typed into your browser's address bar.
 
 ```
 Connection: close
@@ -173,7 +173,7 @@ This header asks the server to close the underlying TCP connection once it has f
 Content-Length: 7
 ```
 
-The Content-Length header tells the server how many bytes of data will be sent in the request body. This one is important :)
+The `Content-Length` header tells the server how many bytes of data will be sent in the request body. This one is important :)
 
 ```
 
@@ -185,9 +185,9 @@ There isn't a mistake here; this empty-looking line contains nothing but a CRLF 
 thedata
 ```
 
-Lastly we send the request body (AKA POST data). Its length (in bytes) must match up with the Content-Length header we sent earlier because we told the server it would have to read that many bytes.
+Lastly we send the request body (AKA `POST` data). Its length (in bytes) must match up with the `Content-Length` header we sent earlier because we told the server it would have to read that many bytes.
 
-Let's send this request to httpbin.org by piping an echo command into netcat:
+Let's send this request to httpbin.org by piping an echo command into [netcat](https://netcat.sourceforge.net/):
 
 ```
 tom@slim:~▶ echo -e "POST /post HTTP/1.1\r\nHost: httpbin.org\r\nConnection: close\r\nContent-Length: 7\r\n\r\nthedata" | nc httpbin.org 80
@@ -218,7 +218,7 @@ Via: 1.1 vegur
 
 Everything works as expected. We get some response headers, a CRLF sequence, and then the response body.
 
-So, here comes the trick: what happens if you send more POST data than you said you would in your Content-Length header? Let's try it:
+So, here comes the trick: what happens if you send more `POST` data than you said you would in your `Content-Length` header? Let's try it:
 
 ```
 tom@slim:~▶ echo -e "POST /post HTTP/1.1\r\nHost: httpbin.org\r\nConnection: close\r\nContent-Length: 7\r\n\r\nthedata some more data" | nc httpbin.org 80
@@ -247,17 +247,17 @@ Via: 1.1 vegur
 }
 ```
 
-We kept the Content-Length header the same and said we'd send 7 bytes, and added some more data to the request body, but the server only read the first 7 bytes. And that is the trick we can use to actually craft an exploit.
+We kept the `Content-Length` header the same and said we'd send 7 bytes, and added `some more data` to the request body, but the server only read the first 7 bytes. And that is the trick we can use to actually craft an exploit.
 
 ---
 
 ## The Exploit
 It turns out that when you set the `CURLOPT_HTTPHEADER` option, not only can you inject headers by using a single CRLF sequence, you can inject POST data using a double CRLF sequence. So here's the plan:
 
-1. Craft our own JSON POST data that calls some method other than getPublicData; let's say getPrivateData
+1. Craft our own JSON `POST` data that calls some method other than `getPublicData`; let's say `getPrivateData`
 2. Get the length of that data in bytes
-3. Using a single CRLF sequence, inject a Content-Length header that instructs the server to only read that number of bytes
-4. Inject two CRLF sequences, and then our malicious JSON as the POST data
+3. Using a single CRLF sequence, inject a `Content-Length` header that instructs the server to only read that number of bytes
+4. Inject two CRLF sequences, and then our malicious JSON as the `POST` data
 
 If all goes well, the legitimate JSONPOST data should be completely ignored by the internal API, in favour of our malicious JSON.
 
@@ -300,7 +300,7 @@ tom@slim:~▶ curl -s localhost:1234 -b $(php gencookie.php)
 }
 ```
 
-Great success! We set the x-Trial-Groups header to ignore, injected a Content-Length header, and our own POST data. The legitimate POST data was still sent, but it was completely ignored by the server :)
+Great success! We set the `X-Trial-Groups` header to ignore, injected a `Content-Length` header, and our own `POST` data. The legitimate `POST` data was still sent, but it was completely ignored by the server :)
 
 This is the kind of bug that you're unlikely to find doing black-box testing, but I think it's still worth writing about because there is so much open source code in use these days, and it's always good to educate people who write code about attack vectors they might not be aware of too.
 
