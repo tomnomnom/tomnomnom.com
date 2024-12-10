@@ -218,5 +218,15 @@
     "channelId": "UCyBZ1F8ZCJVKSIJPrLINFyA",
     "description": "I use xargs quite often, especially in conjunction with the find command, so I made a short video on how to use it.",
     "tags": []
+  },
+  {
+    "id": "lFBAo9TKRY8",
+    "published": "2024-12-10T20:46:03Z",
+    "title": "Confessions of a Toolmaker",
+    "originalTitle": "Confessions of a Toolmaker - Tom Hudson (tomnomnom) - Ekoparty 2024",
+    "channel": "Ekoparty Security Conference",
+    "channelId": "UCiVNwNkoMapaeyr9o6XEonA",
+    "description": "A talk about how I got into making tools, and how I approach making them.",
+    "tags": []
   }
 ]
