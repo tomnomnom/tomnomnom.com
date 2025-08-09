@@ -214,3 +214,8 @@ div.video {
     text-align: center;
     margin: 2rem;
 }
+
+h2 > a {
+	text-decoration: none;
+	font-weight: bold;
+}

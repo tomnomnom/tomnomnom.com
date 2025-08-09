@@ -14,9 +14,9 @@ func serve() error {
 		"templates/header.tmpl",
 		"templates/footer.tmpl",
 		"templates/index.tmpl",
+		"templates/tools.tmpl",
 		"templates/videos.tmpl",
 		"templates/sheep.tmpl",
-		"templates/links.tmpl",
 		"templates/blog-posts.tmpl",
 		"templates/blog-post.tmpl",
 	)
@@ -62,8 +62,8 @@ func serve() error {
 		c.HTML(http.StatusOK, "sheep.tmpl", gin.H{})
 	})
 
-	r.GET("/links", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "links.tmpl", gin.H{})
+	r.GET("/tools", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "tools.tmpl", gin.H{})
 	})
 
 	blogPosts, err := getBlogPosts()

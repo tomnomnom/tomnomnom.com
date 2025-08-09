@@ -1,6 +1,6 @@
 # CRLF Injection Into PHP's cURL Options
 
-This is a post about injecting carriage return and line feed characters into a internal API call. I wrote this up a year ago as a Gist on GitHub, but that's not really the best platform for blog posts, is it? I've added more detail here so it's not just a straight copy and paste.
+This is a post about injecting carriage return and line feed characters into a internal API call. I wrote this up years ago as a Gist on GitHub, but that's not really the best platform for blog posts, is it? I've added more detail here so it's not just a straight copy and paste.
 
 I like to do white-box testing when I can. I'm not a very good black-box tester, but I've spent more than a decade reading and writing PHP - and made my fair share of mistakes along the way - so I tend to know what to look out for.
 
