@@ -16,20 +16,20 @@ import (
 	"golang.org/x/net/html"
 )
 
-//go:embed blog-posts
-var blogPostContent embed.FS
+//go:embed articles
+var articleContent embed.FS
 
-const blogPostDir = "blog-posts"
+const articleDir = "articles"
 
-type blogPost struct {
+type article struct {
 	ID      string
 	Title   string
 	Content template.HTML
 }
 
-type blogs []*blogPost
+type articles []*article
 
-func (b blogs) find(id string) *blogPost {
+func (b articles) find(id string) *article {
 	for _, p := range b {
 		if p.ID == id {
 			return p
@@ -38,10 +38,10 @@ func (b blogs) find(id string) *blogPost {
 	return nil
 }
 
-func getBlogPosts() (blogs, error) {
-	out := make(blogs, 0)
+func getArticles() (articles, error) {
+	out := make(articles, 0)
 
-	entries, err := blogPostContent.ReadDir(blogPostDir)
+	entries, err := articleContent.ReadDir(articleDir)
 	if err != nil {
 		return out, err
 	}
@@ -50,7 +50,7 @@ func getBlogPosts() (blogs, error) {
 		if entry.IsDir() {
 			continue
 		}
-		post, err := parseBlogPost(entry.Name())
+		post, err := parseArticle(entry.Name())
 		if err != nil {
 			return out, err
 		}
@@ -61,15 +61,15 @@ func getBlogPosts() (blogs, error) {
 	return out, nil
 }
 
-func parseBlogPost(filename string) (*blogPost, error) {
-	raw, err := blogPostContent.ReadFile(path.Join(blogPostDir, filename))
+func parseArticle(filename string) (*article, error) {
+	raw, err := articleContent.ReadFile(path.Join(articleDir, filename))
 	if err != nil {
 		return nil, err
 	}
 
 	parts := strings.Split(filename, ".")
 	if len(parts) != 2 {
-		return nil, errors.New("blog post file lacks extension")
+		return nil, errors.New("article file lacks extension")
 	}
 
 	id := parts[0]
@@ -85,7 +85,7 @@ func parseBlogPost(filename string) (*blogPost, error) {
 	}
 
 	// TODO: parse metadata from... somewhere.
-	return &blogPost{
+	return &article{
 		ID:      id,
 		Title:   title,
 		Content: template.HTML(raw),

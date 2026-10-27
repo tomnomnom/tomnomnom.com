@@ -59,11 +59,11 @@
 
 
 body {
-	font-size: 20px;
-	font-family: sans-serif;
-	max-width: 60rem;
-	margin-left: auto;
-	margin-right: auto;
+    font-size: 20px;
+    font-family: sans-serif;
+    max-width: 60rem;
+    margin-left: auto;
+    margin-right: auto;
     line-height: 1.6;
 }
 
@@ -83,12 +83,12 @@ h1, h2, h3 {
 }
 
 pre {
-	white-space: pre-wrap;
-	word-break: break-word;
+    white-space: pre-wrap;
+    word-break: break-word;
     margin: 0.5rem;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
-	padding: 1rem;
+    padding: 1rem;
     border-radius: 5px;
 }
 
@@ -114,7 +114,7 @@ header {
     line-height: 1;
 
     & h1 {
-        font-size: 3rem;
+        font-size: clamp(1.75rem, 9vw, 3rem);
         & a {
             text-decoration: none;
             font-weight: bold;
@@ -145,7 +145,7 @@ header {
 
 
 p.signoff {
-	text-align: right;
+    text-align: right;
 }
 
 .container {
@@ -216,6 +216,65 @@ div.video {
 }
 
 h2 > a {
-	text-decoration: none;
-	font-weight: bold;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem;
+        margin: 3px;
+        margin-bottom: 0.5rem;
+    }
+
+    p {
+        margin-top: 0;
+    }
+    
+    article h1 {
+        font-size: 1.5rem;
+    }
+
+    article h2 {
+        font-size: 1.5rem;
+    }
+
+    body {
+        font-size: 18px;
+    }
+
+    
+    div.video {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "info"
+            "thumbnail"
+            "footer";
+    grid-gap: 0.5rem;
+
+        & .thumbnail {
+            text-align: center;
+
+            & img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+
+        & .footer {
+            text-align: center;
+        }
+    }
+
+    article pre {
+        font-size: 0.8rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+}
+
+.picture img {
+    max-width: 90%;
+    height: auto;
 }

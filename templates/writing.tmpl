@@ -1,14 +1,14 @@
 {{template "header"}}
 <section class=container>
-<h2>Blog Posts</h2>
+<h2>Writing</h2>
 <p>
-I don't blog often. Is 'blog' a verb? I think blog can be a verb.
+I don't write often.
 </p>
 </section>
 
 {{range .posts}}
 	<article class=container>
-		<a href="/blog-posts/{{.ID}}">{{.Title}}</a>
+		<a href="/writing/{{.ID}}">{{.Title}}</a>
 	</article>
 {{end}}
 

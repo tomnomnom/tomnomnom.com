@@ -17,8 +17,8 @@ func serve() error {
 		"templates/tools.tmpl",
 		"templates/videos.tmpl",
 		"templates/sheep.tmpl",
-		"templates/blog-posts.tmpl",
-		"templates/blog-post.tmpl",
+		"templates/writing.tmpl",
+		"templates/article.tmpl",
 	)
 	r.Static("/static", "./static")
 	r.StaticFile("/favicon.ico", "./static/favicons/favicon.ico")
@@ -66,26 +66,26 @@ func serve() error {
 		c.HTML(http.StatusOK, "tools.tmpl", gin.H{})
 	})
 
-	blogPosts, err := getBlogPosts()
+	posts, err := getArticles()
 	if err != nil {
 		return err
 	}
 
-	r.GET("/blog-posts", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "blog-posts.tmpl", gin.H{
-			"posts": blogPosts,
+	r.GET("/writing", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "writing.tmpl", gin.H{
+			"posts": posts,
 		})
 	})
 
-	r.GET("/blog-posts/:post_id", func(c *gin.Context) {
+	r.GET("/writing/:post_id", func(c *gin.Context) {
 
-		post := blogPosts.find(c.Param("post_id"))
+		post := posts.find(c.Param("post_id"))
 		if post == nil {
 			c.JSON(http.StatusNotFound, gin.H{})
 			return
 		}
 
-		c.HTML(http.StatusOK, "blog-post.tmpl", gin.H{
+		c.HTML(http.StatusOK, "article.tmpl", gin.H{
 			"content": post.Content,
 		})
 	})
