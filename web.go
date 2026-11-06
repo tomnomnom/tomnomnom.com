@@ -22,6 +22,7 @@ func serve() error {
 	)
 	r.Static("/static", "./static")
 	r.Static("/talks", "./talks")
+	r.Static("/toys", "./toys")
 	r.StaticFile("/favicon.ico", "./static/favicons/favicon.ico")
 	r.StaticFile("/site.webmanifest", "./static/favicons/site.webmanifest")
 
