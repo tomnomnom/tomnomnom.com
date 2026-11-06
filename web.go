@@ -21,6 +21,7 @@ func serve() error {
 		"templates/article.tmpl",
 	)
 	r.Static("/static", "./static")
+	r.Static("/talks", "./talks")
 	r.StaticFile("/favicon.ico", "./static/favicons/favicon.ico")
 	r.StaticFile("/site.webmanifest", "./static/favicons/site.webmanifest")
 
