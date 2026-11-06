@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>waves</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      body {
+        background-color: #000000;
+      }
+      section {
+        text-align: center;
+      }
+      canvas {
+        padding: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="main">
+      <canvas id="demo" width="1000" height="500" data-val="0">No canvas</canvas>
+    </section>
+
+    <script src="waves.js"></script>
+    <script>
+      window.onload = function(){
+        var demo = document.getElementById('demo');
+        waves(demo);
+      };
+    </script>
+    
+  </body>
+</html>
